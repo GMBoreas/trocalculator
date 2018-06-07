@@ -10,7 +10,7 @@
 - Issue #65: [Missing Item] - Enhanced Helm of Angel [NattWara]
 - Issue #66: [Missing Item] - Enhanced Hat of the Sun God [NattWara]
 - Issue #70: [Missing Item] - Chilly Spell Book [NattWara]
-- Issue #84:[Wrong Effect/Status] - Chameleon Armor [NattWara]
+- Issue #84: [Wrong Effect/Status] - Chameleon Armor [NattWara]
 - Issue #148: Lacrima Stick wrong effect in calculator [NattWara]
 - Issue #150: Wrong weight and level requirement for Sleipnir - ID # 8049 [NattWara]
 - Issue #73: Added Gigantic Lance [Slap]

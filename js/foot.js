@@ -2936,6 +2936,16 @@ n_A_MaxHP += SkillSearch(156) * 200;
 		if(wSPVS==3 || wSPVS==4 || wSPVS==5)
 			n_tok[156] += 50;
 	}
+
+	//custom Talonro Chameleon Armor: [Swordsman, Merchant, Thief] DEF + 3 [Magician, Archer, Acolyte] MDEF + 5
+	if(EquipNumSearch(986)){
+		wSPVS = n_A_JobSearch();
+		if(wSPVS==1 || wSPVS==2 || wSPVS==6)
+			n_tok[18] += 3;
+		if(wSPVS==3 || wSPVS==4 || wSPVS==5)
+			n_tok[19] += 5;
+	}
+	
 	if(EquipNumSearch(828)){
 		n_tok[151] += 2 * n_A_HEAD_DEF_PLUS;
 		n_tok[152] += 2 * n_A_HEAD_DEF_PLUS;
