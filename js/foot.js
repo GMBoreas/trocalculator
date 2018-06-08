@@ -574,7 +574,7 @@ function StAllCalc()
 	if(CardNumSearch(492))
 		w += Math.floor(n_A_JobLV /5) * CardNumSearch(492); //custom TalonRO Ifrit Card +1atk every 5 Joblv
 		//w += Math.floor(n_A_JobLV /10) * CardNumSearch(492); //original Ifrit Card +1atk every 10 Joblv
-		
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Hat of the Sun God [1] - ATK part [Nattwara]
 	/*
 	[Refine Rate 5+]
@@ -589,17 +589,17 @@ function StAllCalc()
 	if(EquipNumSearch(1654)){
 		if(n_A_HEAD_DEF_PLUS>4)
 			w += 4;
-		
+
 		if(n_A_HEAD_DEF_PLUS>5)
 			w += 4;
-	
+
 		if(n_A_HEAD_DEF_PLUS>6)
 			w += 6;
-		
+
 		if(n_A_HEAD_DEF_PLUS>7)
 			w += 6;
 	}
-		
+
 	if(EquipNumSearch(1120) && n_A_JobSearch()==4)
 		w += 10;
 	if(EquipNumSearch(1165))
@@ -857,17 +857,17 @@ n_A_MaxHP += SkillSearch(156) * 200;
 	if(EquipNumSearch(1657)){
 		if(n_A_HEAD_DEF_PLUS>4)
 			w += 1;
-		
+
 		if(n_A_HEAD_DEF_PLUS>5)
 			w += 1;
-	
+
 		if(n_A_HEAD_DEF_PLUS>6)
 			w += 1;
-		
+
 		if(n_A_HEAD_DEF_PLUS>7)
 			w += 2;
 	}
-	
+
 	//custom TalonRO SQI Eversong Greaves: [Taekwon] +10% MaxHP; [Taekwon Master] +20% MaxHP (the item itself)
 	if(EquipNumSearch(1383))
 		//alert(n_A_JOB+","+n_A_JobSearch());
@@ -1170,11 +1170,11 @@ n_A_MaxHP += SkillSearch(156) * 200;
 	if(EquipNumSearch(1641)){
 		n_A_DEF -= Math.floor(SU_VIT / 30);
 	}
-	
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Bone Helm [1] - +1 DEF each refine past +4 until +8 [Nattwara]
 	if(EquipNumSearch(1656) && n_A_HEAD_DEF_PLUS > 4)
 		n_A_DEFplus -= Math.min(n_A_HEAD_DEF_PLUS-4,4);
-	
+
 	//custom TalonRO Armor enchant DEF
 	var wHSE = eval(A_HSE.value);
 	if(wHSE){
@@ -1351,7 +1351,7 @@ n_A_MaxHP += SkillSearch(156) * 200;
 		n_A_MDEF += 8;
 	if(EquipNumSearch(764))
 		n_A_MDEF += (n_A_HEAD_DEF_PLUS + n_A_LEFT_DEF_PLUS);
-	
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Helm of Angel [1] - MDEF Part [Nattwara]
 	/*
 	[Refine Rate 5+]
@@ -1367,7 +1367,7 @@ n_A_MaxHP += SkillSearch(156) * 200;
 			n_A_MDEF += 1;
 		}
 	}
-	
+
 	if(EquipNumSearch(809))
 		n_A_MDEF += n_A_HEAD_DEF_PLUS;
 	if(CardNumSearch(199) && n_A_JobSearch()==5)
@@ -1796,7 +1796,7 @@ n_A_MaxHP += SkillSearch(156) * 200;
 	for(var i=8;i<=9;i++){
 		if(n_A_card[i] == 510 || n_A_card[i] == 511){C_ATK += 10;}
 	}
-	
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Hat of the Sun God [1] - ATK part [Nattwara]
 	/*
 	[Refine Rate 5+]
@@ -1811,13 +1811,13 @@ n_A_MaxHP += SkillSearch(156) * 200;
 	if(EquipNumSearch(1654)){
 		if(n_A_HEAD_DEF_PLUS>4)
 			C_ATK += 4;
-		
+
 		if(n_A_HEAD_DEF_PLUS>5)
 			C_ATK += 4;
-	
+
 		if(n_A_HEAD_DEF_PLUS>6)
 			C_ATK += 6;
-		
+
 		if(n_A_HEAD_DEF_PLUS>7)
 			C_ATK += 6;
 	}
@@ -2066,7 +2066,7 @@ n_A_MaxHP += SkillSearch(156) * 200;
 	if(EquipNumSearch(1645)){
 		w += Math.floor(n_A_HEAD_DEF_PLUS / 2);
 	}
-	
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Hat of the Sun God [1] - MATK part [Nattwara]
 	/*
 	[Refine Rate 5+]
@@ -2081,13 +2081,13 @@ n_A_MaxHP += SkillSearch(156) * 200;
 	if(EquipNumSearch(1654)){
 		if(n_A_HEAD_DEF_PLUS>4)
 			w += 1;
-		
+
 		if(n_A_HEAD_DEF_PLUS>5)
 			w += 1;
-	
+
 		if(n_A_HEAD_DEF_PLUS>6)
 			w += 1;
-		
+
 		if(n_A_HEAD_DEF_PLUS>7)
 			w += 2;
 	}
@@ -2467,7 +2467,7 @@ n_A_MaxHP += SkillSearch(156) * 200;
 		n_A_ASPD += 1;
 	if (EquipNumSearch(1525))
 		n_A_ASPD += 1;
-	
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Helm of Angel [1] - If refine 7+, ASPD + 1 [Nattwara]
 	if (EquipNumSearch(1655) && (n_A_HEAD_DEF_PLUS > 6))
 		n_A_ASPD += 1;
@@ -2780,11 +2780,11 @@ n_A_MaxHP += SkillSearch(156) * 200;
 	if(n_A_HEAD_DEF_PLUS >= 7 && EquipNumSearch(1545)){
 		n_tok[25] -= (n_A_HEAD_DEF_PLUS - 5);
 	}
-	
+
 	//Custom TalonRO - 2018-06-07 - Lord of the Dead Helm [1] + Abysmal Knight Card - +5% damage on boss monsters  [Nattwara]
 	if(EquipNumSearch(1658) && CardNumSearch(31))
 		n_tok[26] += 5;
-	
+
 	//Custom TalonRO - 2018-06-07 - Lord of the Dead Helm [1] - Refine 5+ +1% more damage on boss monsters for every refine.  [Nattwara]
 	if(EquipNumSearch(1658) && n_A_HEAD_DEF_PLUS > 4)
 		n_tok[26] += n_A_HEAD_DEF_PLUS;
@@ -2848,15 +2848,15 @@ n_A_MaxHP += SkillSearch(156) * 200;
 	//[Custom TalonRO - 2018-06-02 - Aegir Helm + Armor Combo - 1% less damage from Fish race monster for each refine] [Kato/Nattwara]
 	if(EquipNumSearch(1556))
 		n_tok[55] += n_A_BODY_DEF_PLUS;
-	
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Bone Helm [1] - 1% less damage Neutral element attack for each refine past +4 until +8 [Nattwara]
 	if(EquipNumSearch(1656) && n_A_HEAD_DEF_PLUS > 4)
 		n_tok[60] += Math.min(n_A_HEAD_DEF_PLUS-4,4);
-	
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Corsair [1] - 1% less damage Neutral element attack if refine +8 or above [Nattwara]
 	if(EquipNumSearch(1657) && (n_A_HEAD_DEF_PLUS > 7))
 		n_tok[60] += 1;
-	
+
 	//Custom TalonRO - 2018-06-07 - Lord of the Dead Helm [1] + Abysmal Knight Card - Refine 6+ Receive 1% more damage from all monsters for every refine.  [Nattwara]
 	if(EquipNumSearch(1658) && CardNumSearch(31) && n_A_HEAD_DEF_PLUS > 5) {
 		n_tok[77] -= n_A_HEAD_DEF_PLUS;
@@ -3213,7 +3213,7 @@ function StPlusCalc()
 	if(EquipNumSearch(1646) && n_A_HEAD_DEF_PLUS > 6){
 		wSPC_DEX += n_A_HEAD_DEF_PLUS - 6;
 	}
-	
+
 	//Custom TalonRO - 2018-06-07 - Enhanced Helm of Angel [1] - AGI & LUK Part [Nattwara]
 	/*
 	[Refine Rate 5+]
@@ -6530,7 +6530,8 @@ with(document.calcForm){
 		x+=8;
 	}
 
-	SaveData[x+1] = NtoS2(parseInt(document.calcForm.Conf01.value),2);
+	//SaveData[x+1] = NtoS2(parseInt(document.calcForm.Conf01.value),2);
+	SaveData[x+1] = NtoS2(33,2);
 	x+=1;
 
 	SaveData[x+1] = NtoS2(parseInt(document.calcForm.A_HSE.value),2);
@@ -6610,6 +6611,7 @@ function StoN2(n){
 
 function URLIN(){
 with(document.calcForm){
+
 	var r = /\?/;
 	var w = location.href.match(r);
 	if(w){
@@ -6880,7 +6882,7 @@ with(document.calcForm){
 			x+=14;
 		}
 
-		document.calcForm.Conf01.value = StoN2(w.substr(x+1,2));
+		//document.calcForm.Conf01.value = StoN2(w.substr(x+1,2));
 		x+=2;
 		if(w_Version >= 1){
 			document.calcForm.A_HSE.value = StoN2(w.substr(x+1,2));
@@ -7175,6 +7177,10 @@ if(Taijin==0)
 	EnemySort();
 StCalc();
 calc();
+
+//[Custom TalonRO - 2018-06-03 - Populate combos in index] [Kato]
+tRO_PopulateCombos();
+
 LoadCookie3();
 LoadCookieConf();
 LoadCookieChangelogDisplay();
@@ -7193,5 +7199,3 @@ Click_A2();
 Click_Skill9SW();
 //custom TalonRO SQI-Bonus calculation
 Click_SQI_Bonus_SW();
-//[Custom TalonRO - 2018-06-03 - Populate combos in index] [Kato]
-tRO_PopulateCombos();

@@ -32,6 +32,7 @@
 - Issue #55: Added Improved Bongun Hat [Slap]
 - Issue #56: Added Improved Opera Phantom Mask [Slap]
 - Issue #57: Added Improved Kitsune Mask [Slap]
+- Added Changelog in index, fixed the loading from URL; [Kato]
 
 [Update 2018-06-06]
 - Issue #128: Added GMC Bosses; [Natwarra/Kato]
