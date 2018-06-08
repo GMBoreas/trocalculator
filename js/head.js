@@ -116,6 +116,7 @@ BulletOBJ = [
 [15,4,"Wind Bullet"],
 [15,2,"Earth Bullet"],
 [15,1,"Water Bullet"],
+[15,7,"Shadow Bullet"],
 ];
 
 GrenadeOBJ = [
@@ -3317,11 +3318,11 @@ with(document.calcForm){
 			//before
 			//j=2
 			//new
-			j=6;
+			j=7;
 			//before
 			//for (i=0; i<=2; i++)
 			//new
-			for (i=0; i<=6; i++)
+			for (i=0; i<=7; i++)
 				ArrowOBJ[i] = BulletOBJ[i];
 		}else if(n==21){
 			j=4;

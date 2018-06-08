@@ -5476,7 +5476,7 @@ if(w > 0) {
 			if(40 <= w && w <= 44)
 				A_weapon1_card1.value = 202;
 		}
-	}else if(CardShort[w][0] != "Remove All Cards") {
+	}else if(CardShort[w][0] != "Remove All Cards") { //Job Card Set
 		if(CardShort[w][2] != 0)
 			A_weapon1_card1.value = CardShort[w][2];
 		if(CardShort[w][3] != 0)
@@ -5495,7 +5495,7 @@ if(w > 0) {
 			A_acces2_card.value = CardShort[w][9];
 		if(CardShort[w][10] != 0)
 			A_head2_card.value = CardShort[w][10];
-	} else {
+	} else { //remove all cards
 		A_weapon1_card1.value = 0;
 		A_weapon1_card2.value = 0;
 		A_weapon1_card3.value = 0;
@@ -7016,21 +7016,24 @@ CardShort =[
 ["2 Crit Dmg+10%,Crit+7 Cards",156,156,0,0], // # 55
 ["3 Crit Dmg+10%,Crit+7 Cards",156,156,156,0], // # 56
 ["4 Crit Dmg+10%,Crit+7 Cards",156,156,156,156], // # 57
-["Swordsman Set",10000,223,347,0,317,0,362,354,0], // # 58
-["Thief Set",10000,233,0,0,0,295,391,395,260], // # 59
-["Aco Set",10000,253,383,307,301,0,0,270,0], // # 60
-["Archer Set",10000,279,0,0,224,340,351,531,0], // # 61
-["Mage Set",10000,0,337,358,220,346,379,350,0], // # 62
-["Merchant Set",10000,326,376,0,281,0,388,216,0], // # 63
-["Crusader Set",10000,0,347,0,190,0,362,354,0], // # 64
-["Rogue Set",10000,0,113,0,0,295,391,260,413], // # 65
-["Monk Set",10000,253,383,0,181,0,0,270,0], // # 66
-["Bard/Dancer Set",10000,279,0,0,224,340,408,230,0], // # 67
-["Sage Set",10000,0,337,0,193,346,379,350,0], // # 68
-["Alchemist Set",10000,326,175,0,281,0,388,104,0], // # 69
-["Test (for now)",0,0,0,0], // # 70
+["Swordsman Set",10000,223,347,0,317,0,362,354,0,0], // # 58
+["Thief Set",10000,233,0,0,0,295,391,395,260,0], // # 59
+["Aco Set",10000,253,383,307,301,0,0,270,0,0], // # 60
+["Archer Set",10000,279,0,0,224,340,351,531,0,0], // # 61
+["Mage Set",10000,0,337,358,220,346,379,350,0,0], // # 62
+["Merchant Set",10000,326,376,0,281,0,388,216,0,0], // # 63
+["Crusader Set",10000,0,347,0,190,0,362,354,0,0], // # 64
+["Rogue Set",10000,0,113,0,0,295,391,260,413,0], // # 65
+["Monk Set",10000,253,383,0,181,0,0,270,0,0], // # 66
+["Bard/Dancer Set",10000,279,0,0,224,340,408,230,0,0], // # 67
+["Sage Set",10000,0,337,0,193,346,379,350,0,0], // # 68
+["Alchemist Set",10000,326,175,0,281,0,388,104,0,0], // # 69
+["+75% ASPD [DDD]",42,42,42,0], // # 70
+["12% All-Size Dmg. Reduc. [3Drac]",47,47,47,0], // # 71
+["16% All-Size Dmg. Reduc. [4Drac]",47,47,47,47], // # 72
+["Test (for now)",0,0,0,0], // # 73
 ];
-for(i=0;i<=69;i++)
+for(i=0;i<=72;i++)
 	document.calcForm.A_cardshort.options[i] = new Option(CardShort[i][0],i);
 
 //custom TalonRO extra enchants
