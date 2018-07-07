@@ -4194,16 +4194,20 @@ function WeaponSet()
 	n_A_JobSet();
 	n_A_WeaponType = eval(document.calcForm.A_WeaponType.value);
 	var len = document.calcForm.A_weapon1.length;
+	//check if vanilla mode is on
+	var v_check = eval(document.calcForm.vanilla.checked);
 	for(var i=0;i<len;i++)
 		document.calcForm.A_weapon1.options[0] = null;
 
 	work = new Array();
 	j = 0;
 	for (i=0;i<=ItemMax; i++)	{
-		if(ItemOBJ[i][1] == n_A_WeaponType && (JobEquipItemSearch(ItemOBJ[i][2]) == 1 || debugMode == 1)){
+		if(v_check && restrictedItems.includes(i)){
+			continue;
+		}
+		else if(ItemOBJ[i][1] == n_A_WeaponType && (JobEquipItemSearch(ItemOBJ[i][2]) == 1 || debugMode == 1)){
 			work[j] = i;
 			j++;
-
 		}
 		//custom TalonRO fix showing lv 4 weapon on active Super Novice Link
 		//old stuff showed much more than lv 4 weaps only, like Stunner (lv 3)
@@ -4225,7 +4229,6 @@ function WeaponSet()
 		}*/
 	}
 	work[j] = "EOF";
-
 
 	work = sort(work);
 	for (i=0;i<j; i++)
@@ -4299,6 +4302,7 @@ with(document.calcForm){
 	}
 	first_check = 2;
 
+	var v_check = eval(document.calcForm.vanilla.checked);
 	var workB = new Array();
 	for(i=0;i<=7;i++)
 		workB[i] = new Array();
@@ -4306,7 +4310,10 @@ with(document.calcForm){
 	for(i=0;i<=7;i++)
 		wsj[i]=0;
 	for(i=0;i<=ItemMax; i++){
-		if(ItemOBJ[i][1] == 50 && (JobEquipItemSearch(ItemOBJ[i][2]) == 1 || SuperNoviceFullWeaponCHECK || debugMode == 1)){
+		if(v_check && restrictedItems.includes(i)){
+			continue;
+		}
+		else if(ItemOBJ[i][1] == 50 && (JobEquipItemSearch(ItemOBJ[i][2]) == 1 || SuperNoviceFullWeaponCHECK || debugMode == 1)){
 			workB[0][wsj[0]] = i;
 			wsj[0]++;
 		}
@@ -4346,7 +4353,6 @@ with(document.calcForm){
 		workB[m] = sort(workB[m]);
 
 	var z = 0;
-
 	//custom TalonRO so LKH appears as the first option on the Headgear list
 	//old:
 	for(i=0;i<wsj[0];i++){

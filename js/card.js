@@ -1120,30 +1120,35 @@ cardID = [
 
 CardNum = cardOBJ.length -1;
 //Sort cards alphabetically - [Loa] - 2018-06-28
-function sortCards(inputArray){
+function sortCards(cardArray){
 	var tempArray = [[0],[0],[0],[0],[0],[0],[0],[0]];
 	var elementalStone = [];
 	var cardSpecial = [];
-	//sort all cards
-	for(i = 1; i < inputArray.length; i++){
-		if(inputArray[i][1] >= 1 && inputArray[i][1] <= 7){
-			for(j = tempArray[inputArray[i][1]].length - 1; j >= 0; j--){
-				if(inputArray[i][2] > inputArray[tempArray[inputArray[i][1]][j]][2]){
-					tempArray[inputArray[i][1]].splice(j + 1, 0, inputArray[i][0]);
-					if(inputArray[i][1] == 1){
-						tempArray[0].splice(j + 1, 0, inputArray[i][0]);
+	//check if vanilla mode is on
+	var v_check = eval(document.calcForm.vanilla.checked);
+	//sort all cards into array of arrays based on location
+	for(i = 1; i < cardArray.length; i++){
+		if(v_check && restrictedCards.includes(i)){
+			continue;
+		}
+		else if(cardArray[i][1] >= 1 && cardArray[i][1] <= 7){
+			for(j = tempArray[cardArray[i][1]].length - 1; j >= 0; j--){
+				if(cardArray[i][2] > cardArray[tempArray[cardArray[i][1]][j]][2]){
+					tempArray[cardArray[i][1]].splice(j + 1, 0, cardArray[i][0]);
+					if(cardArray[i][1] == 1){
+						tempArray[0].splice(j + 1, 0, cardArray[i][0]);
 					}
 					break;
 				}
 			}
 		}
 		//filter out weapon elemental stone
-		else if(inputArray[i][1] == 10){
-			elementalStone.push(inputArray[i][0]);
+		else if(cardArray[i][1] == 10){
+			elementalStone.push(cardArray[i][0]);
 		}
 		//filter out weapon special
-		else if(inputArray[i][1] == 11){
-			cardSpecial.push(inputArray[i][0]);
+		else if(cardArray[i][1] == 11){
+			cardSpecial.push(cardArray[i][0]);
 		}
 	}
 	//add special to weapon cards list
@@ -1160,20 +1165,9 @@ function sortCards(inputArray){
 	}
 	return tempArray
 }
-CardSortOBJ = sortCards(cardOBJ);
-// CardSortOBJ = [
-// [0,201,202,203,204,1,2,3,106,31,230,25,11,112,107,223,356,463,305,520,45,355,217,465,163,519,15,265,160,499,325,259,156,279,311,169,28,20,329,42,47,21,32,343,5,462,215,19,244,158,4,359,110,8,17,253,524,263,14,286,288,287,529,39,167,498,6,159,46,13,255,235,26,357,289,290,164,168,382,537,7,165,37,23,398,35,157,36,540,30,328,40,380,466,345,252,27,353,12,360,44,171,33,539,515,534,170,111,390,22,109,16,254,43,428,29,9,34,162,41,523,366,18,464,166,427,233,296,323,24,363,161,10,38,326,319,"NULL"],
-// [0,1,2,3,106,31,230,25,11,112,107,223,356,463,305,520,45,355,217,465,163,519,15,265,160,499,325,259,156,279,311,169,28,20,329,42,47,21,32,343,5,462,215,19,244,158,4,359,110,8,17,253,524,263,14,286,288,287,529,39,167,498,6,159,46,13,255,235,26,357,289,290,164,168,382,537,7,165,37,23,398,35,157,36,30,328,40,380,466,345,252,27,353,12,360,44,171,33,515,534,170,111,390,22,109,16,254,43,428,29,9,34,162,41,523,366,18,464,166,427,233,296,323,24,363,161,10,38,326,319,"NULL"],
-// [0,221,332,474,361,179,298,517,339,114,273,320,510,51,514,342,511,49,337,284,176,116,303,213,117,274,277,424,175,234,472,177,527,473,397,387,178,118,426,115,374,119,376,50,52,347,536,530,120,512,509,513,383,180,535,113,309,313,174,471,425,48,239,238,"NULL"],
-// [0,231,518,55,245,54,122,502,222,124,58,503,504,506,173,505,307,241,470,126,348,467,62,61,507,127,63,123,272,125,469,57,358,368,154,59,468,60,121,396,508,172,56,53,249,338,306,"NULL"],
-// [0,476,194,282,191,134,224,232,225,190,133,404,69,281,500,135,364,479,264,280,522,132,275,321,330,532,198,214,131,334,477,187,501,75,486,199,301,136,302,475,283,276,349,261,268,299,478,220,285,137,184,196,344,197,185,138,130,73,367,65,183,64,525,71,420,192,186,68,72,384,129,293,70,308,195,333,317,74,291,66,128,392,67,189,182,181,240,331,193,"NULL"],
-// [0,405,78,327,402,79,394,341,340,80,243,139,267,346,83,86,82,258,482,401,526,521,219,483,84,81,372,87,271,400,403,85,352,77,480,481,312,294,369,295,76,393,"NULL"],
-// [0,229,227,228,246,266,88,269,322,95,94,242,304,362,257,256,423,407,408,278,484,399,409,89,90,381,351,377,379,140,375,406,388,300,91,92,533,391,93,318,485,"NULL"],
-// [0,412,188,416,141,411,365,350,370,270,146,417,324,414,262,490,489,528,335,410,418,354,495,389,421,150,419,216,492,493,226,151,103,97,218,101,371,143,378,538,104,531,148,250,152,248,247,105,149,415,142,251,147,212,494,386,316,516,297,260,488,315,145,487,96,314,491,310,336,98,292,236,144,413,237,99,385,102,100,395,"NULL"]
-// ];
 
-
-//if(Taijin!=99){
+function PopulateCards(){
+	CardSortOBJ = sortCards(cardOBJ);
 	for(i=0;CardSortOBJ[0][i]!="NULL";i++)
 		document.calcForm.A_weapon1_card1.options[i] = new Option(cardOBJ[CardSortOBJ[0][i]][2],cardOBJ[CardSortOBJ[0][i]][0]);
 	for(i=0;CardSortOBJ[1][i]!="NULL";i++){
@@ -1199,7 +1193,9 @@ CardSortOBJ = sortCards(cardOBJ);
 		document.calcForm.A_acces1_card.options[i] = new Option(cardOBJ[CardSortOBJ[7][i]][2],cardOBJ[CardSortOBJ[7][i]][0]);
 		document.calcForm.A_acces2_card.options[i] = new Option(cardOBJ[CardSortOBJ[7][i]][2],cardOBJ[CardSortOBJ[7][i]][0]);
 	}
-//}
+}
+PopulateCards();
+
 function Click_Card(CBI)
 {
 	var tempScrollTop = window.pageYOffset;

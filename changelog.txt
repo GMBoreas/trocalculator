@@ -1,3 +1,6 @@
+[Update 2018-07-07]
+- Added vanilla mode [Loa]
+
 [Update 2018-07-04]
 - Completed cardID array for linking [Loa]
 - Added linking for card sets [Loa]
