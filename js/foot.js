@@ -4199,11 +4199,14 @@ function WeaponSet()
 
 	work = new Array();
 	j = 0;
-	for (i=0;i<=ItemMax; i++)	{
-		if(ItemOBJ[i][1] == n_A_WeaponType && (JobEquipItemSearch(ItemOBJ[i][2]) == 1 || debugMode == 1)){
+	for (i=0;i<=ItemMax; i++){
+		//check for vanilla mode
+		if(eval(document.calcForm.vanilla.checked) && restrictedItems.includes(i)){
+			continue;
+		}
+		else if(ItemOBJ[i][1] == n_A_WeaponType && (JobEquipItemSearch(ItemOBJ[i][2]) == 1 || debugMode == 1)){
 			work[j] = i;
 			j++;
-
 		}
 		//custom TalonRO fix showing lv 4 weapon on active Super Novice Link
 		//old stuff showed much more than lv 4 weaps only, like Stunner (lv 3)
@@ -4226,7 +4229,6 @@ function WeaponSet()
 	}
 	work[j] = "EOF";
 
-
 	work = sort(work);
 	for (i=0;i<j; i++)
 		document.calcForm.A_weapon1.options[i] = new Option(ItemOBJ[work[i]][8],ItemOBJ[work[i]][0]);
@@ -4243,6 +4245,10 @@ function WeaponSetLeft()
 	work = new Array();
 	j = 0;
 	for (i=0;i<=ItemMax; i++){
+		//check for vanilla mode
+		if(eval(document.calcForm.vanilla.checked) && restrictedItems.includes(i)){
+			continue;
+		}
 		if(ItemOBJ[i][1] == n_A_Weapon2Type && JobEquipItemSearch(ItemOBJ[i][2]) == 1)
 		{
 			work[j] = i;
@@ -4306,7 +4312,11 @@ with(document.calcForm){
 	for(i=0;i<=7;i++)
 		wsj[i]=0;
 	for(i=0;i<=ItemMax; i++){
-		if(ItemOBJ[i][1] == 50 && (JobEquipItemSearch(ItemOBJ[i][2]) == 1 || SuperNoviceFullWeaponCHECK || debugMode == 1)){
+		//check for vanilla mode
+		if(eval(document.calcForm.vanilla.checked) && restrictedItems.includes(i)){
+			continue;
+		}
+		else if(ItemOBJ[i][1] == 50 && (JobEquipItemSearch(ItemOBJ[i][2]) == 1 || SuperNoviceFullWeaponCHECK || debugMode == 1)){
 			workB[0][wsj[0]] = i;
 			wsj[0]++;
 		}
@@ -4346,7 +4356,6 @@ with(document.calcForm){
 		workB[m] = sort(workB[m]);
 
 	var z = 0;
-
 	//custom TalonRO so LKH appears as the first option on the Headgear list
 	//old:
 	for(i=0;i<wsj[0];i++){
@@ -6331,8 +6340,13 @@ with(document.calcForm){
 	wStr = "";
 	//clear baby job status before load - [Loa] - 2018-06-22
 	if(A_youshi.checked){
-		document.getElementById("lab1").checked = false;
+		A_youshi.checked = false;
 		BabyJobs();
+	}
+	//clear vanilla modes before load - [Loa] - 2018-07-07
+	if(vanilla.checked){
+		vanilla.checked = false;
+		Vanilla();
 	}
 
 	for(i=0;SaveData[i];i++){

@@ -2165,24 +2165,28 @@ function BattleCalc999()
 		n_Enekyori=2;
 		wbairitu = 1;
 		n_bunkatuHIT = 0;
+		//fire bolt
 		if(n_A_ActiveSkill==51){
 			n_A_Weapon_zokusei = 3;
 			wHITsuu = n_A_ActiveSkillLV;
 			wCast = 0.7 * n_A_ActiveSkillLV;
 			n_Delay[2] = 0.8 + n_A_ActiveSkillLV * 0.2;
 		}
+		//cold bolt
 		else if(n_A_ActiveSkill==54){
 			n_A_Weapon_zokusei = 1;
 			wHITsuu = n_A_ActiveSkillLV;
 			wCast = 0.7 * n_A_ActiveSkillLV;
 			n_Delay[2]= 0.8 + n_A_ActiveSkillLV * 0.2;
 		}
+		//lightning bolt
 		else if(n_A_ActiveSkill==56){
 			n_A_Weapon_zokusei = 4;
 			wHITsuu = n_A_ActiveSkillLV;
 			wCast = 0.7 * n_A_ActiveSkillLV;
 			n_Delay[2] = 0.8 + n_A_ActiveSkillLV * 0.2;
 		}
+		//fire ball
 		else if(n_A_ActiveSkill==52){
 			n_A_Weapon_zokusei = 3;
 			if(n_A_ActiveSkillLV <=5){
@@ -2201,6 +2205,7 @@ function BattleCalc999()
 			n_Delay[2] = 0.1;
 			wbairitu = 0.5;
 		}
+		//frost diver
 		else if(n_A_ActiveSkill==55){
 			n_A_Weapon_zokusei = 1;
 			wCast = 0.8;
@@ -2231,6 +2236,7 @@ function BattleCalc999()
 				n_Delay[2] = 1;
 			wbairitu = 0.7 + n_A_ActiveSkillLV * 0.1;
 		}
+		//soul strike
 		else if(n_A_ActiveSkill==47){
 			n_A_Weapon_zokusei = 8;
 			wHITsuu = Math.round(n_A_ActiveSkillLV / 2);
@@ -3437,14 +3443,7 @@ with(document.calcForm){
 			myInnerHtml("nA_weapon2_c3",'<select name="A_weapon2_card3"onChange="StAllCalc()|Click_Card(this[this.selectedIndex].value)"></select>',0);
 			myInnerHtml("nA_weapon2_c4",'<select name="A_weapon2_card4"onChange="StAllCalc()|Click_Card(this[this.selectedIndex].value)"></select>',0);
 
-			for(i=0;CardSortOBJ[0][i]!="NULL";i++)
-				A_weapon2_card1.options[i] = new Option(cardOBJ[CardSortOBJ[0][i]][2],cardOBJ[CardSortOBJ[0][i]][0]);
-			for(i=0;CardSortOBJ[1][i]!="NULL";i++){
-				A_weapon2_card2.options[i] = new Option(cardOBJ[CardSortOBJ[1][i]][2],cardOBJ[CardSortOBJ[1][i]][0]);
-				A_weapon2_card3.options[i] = new Option(cardOBJ[CardSortOBJ[1][i]][2],cardOBJ[CardSortOBJ[1][i]][0]);
-				A_weapon2_card4.options[i] = new Option(cardOBJ[CardSortOBJ[1][i]][2],cardOBJ[CardSortOBJ[1][i]][0]);
-			}
-			A_weapon2_card4.options[4] = new Option("Top10",106);
+			PopulateCardsLeft();
 
 			A_LEFT_DEF_PLUS.style.visibility = "hidden";
 			A_LEFT_DEF_PLUS.value = 0;
@@ -7150,7 +7149,6 @@ function tPlusDamCut(wPDC){
 	return wPDC;
 }
 
-
 function tPlusEnemyClick(){
 if(Taijin){
 	n_B = new Array();
@@ -7165,8 +7163,6 @@ if(Taijin){
 	document.calcForm.B_DEF.value = n_B[14];
 	document.calcForm.B_MDEF.value = n_B[15];
 }}
-
-
 
 function tPlusTaiseiSyokia(){
 if(Taijin){
@@ -7235,8 +7231,7 @@ if(Taijin){
 }
 else{
 	return wPL;
-}
-}
+}}
 
 function tPlusAG(){
 if(Taijin){
@@ -7247,3 +7242,19 @@ if(Taijin){
 		w_DMG[2] *= (wPAG /100);
 	}
 }}
+/*
+	vanilla mode switch
+		depends on restrictedItems and restrictedCards arrays in etc.js
+		works by regenerating all equippable item and card option fields
+*/
+function Vanilla(){
+	ClearCards();
+	PopulateCards();
+	WeaponSet();
+	if(n_Nitou){
+		PopulateCardsLeft();
+		WeaponSetLeft();
+	}
+	WeaponSet2();
+	StAllCalc();
+}
