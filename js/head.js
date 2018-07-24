@@ -80,8 +80,8 @@ tRO_EdenArmorEnchantment = [0,0,0,0,0,0,0];
 
 //[Custom TalonRO 2018-07-12 - Global for El Dicaste Enchants values] [NattWara]
 //[Garment1,Garment2,Garment3,Footgear1,Footgear2,Footgear3,Accessory1_1,Accessory1_2,Accessory1_3,Accessory2_1,Accessory2_2,Accessory2_3]
-//	Golden Trickle share value slot with Light of El Dicaste.
-tRO_EDEnchantment = [0,0,0,0,0,0,0,0,0,0,0,0];
+//Added values new values for Golden Trickle so it's not overwritten by Light of El Dicastes [Loa]
+tRO_EDEnchantment = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 //[Custom TalonRO 2018-07-12 - Global for Mora Enchants values] [NattWara]
 //[Armor1,Armor2,Armor3,Garment1,Garment2,Garment3,Accessory1_1,Accessory1_2,Accessory1_3,Accessory2_1,Accessory2_2,Accessory2_3]
@@ -1770,7 +1770,7 @@ function BattleCalc999()
 		//wbairitu += 1;
 		
 		//[Custom TalonRO - 2018-07-09 fix asura damage] [NattWara/Loa]
-		wbairitu = Math.ceil(wbairitu);
+		wbairitu = Math.floor(wbairitu);
 
 		wASYU = 250 + n_A_ActiveSkillLV * 150;
 
@@ -1802,7 +1802,7 @@ function BattleCalc999()
 			if(w_DMG[b] > 200000){
 				var AsuraExcessD = w_DMG[b] - 200000;
 				var AsuraNerfD = (0.5963 - 0.1471) * Math.exp(-0.000002230 * AsuraExcessD) + 0.1471;
-				w_DMG[b] = 200000 + (AsuraExcessD * AsuraNerfD);
+				w_DMG[b] = Math.floor(200000 + (AsuraExcessD * AsuraNerfD));
 			}
 			
 			//Lex Aeterna for Asura Strike after soft-cap
@@ -3168,6 +3168,7 @@ function BattleMagicCalc(wBMC)
 		wBMC2 = Math.floor(wBMC2 * (1 + 0.05 * n_A_ActiveSkillLV));
 
 	var wX = n_tok[170+n_B[2]];
+	wX += n_tok[350+Math.floor(n_B[3]/10)];
 	if(n_B[2]==9  && SkillSearch(234))
 		wX += SkillSearch(234) *2;
 	wBMC2 = wBMC2 * (100 + wX) /100;
@@ -5030,7 +5031,7 @@ function tRO_PopulateCombos() {
 		//El Dicaste (Garment)
 		myInnerHtml("A_EDTextG1","El Dicaste 1: ",0);
 		myInnerHtml("A_EDTextG2","El Dicaste 2: ",0);
-		myInnerHtml("A_EDTextG2","El Dicaste 3: ",0);
+		myInnerHtml("A_EDTextG3","El Dicaste 3: ",0);
 
 		A_EDG1.options[0] = new Option("(Feral Tails Enchant "+ A_EDG1.name.substr(-1) +")",0);
 		A_EDG2.options[0] = new Option("(Feral Tails Enchant "+ A_EDG2.name.substr(-1) +")",0);
@@ -5049,7 +5050,7 @@ function tRO_PopulateCombos() {
 		//El Dicaste (Footgear)
 		myInnerHtml("A_EDTextF1","El Dicaste 1: ",0);
 		myInnerHtml("A_EDTextF2","El Dicaste 2: ",0);
-		myInnerHtml("A_EDTextF2","El Dicaste 3: ",0);
+		myInnerHtml("A_EDTextF3","El Dicaste 3: ",0);
 
 		A_EDF1.options[0] = new Option("(Feral Boots Enchant "+ A_EDF1.name.substr(-1) +")",0);
 		A_EDF2.options[0] = new Option("(Feral Boots Enchant "+ A_EDF2.name.substr(-1) +")",0);
@@ -5112,9 +5113,9 @@ function tRO_PopulateCombos() {
 			A_EDLOED11.options[i+1] = new Option(ED_ENCHANTS_SLOT_ONE[i][1],ED_ENCHANTS_SLOT_ONE[i][0]);
 			A_EDLOED21.options[i+1] = new Option(ED_ENCHANTS_SLOT_ONE[i][1],ED_ENCHANTS_SLOT_ONE[i][0]);
 		}
-		for(i=0; i<ED_ENCHANTS_SLOT_TWO.length; i++) {
-			A_EDLOED12.options[i+1] = new Option(ED_ENCHANTS_SLOT_TWO[i][1],ED_ENCHANTS_SLOT_TWO[i][0]);
-			A_EDLOED22.options[i+1] = new Option(ED_ENCHANTS_SLOT_TWO[i][1],ED_ENCHANTS_SLOT_TWO[i][0]);
+		for(i=0; i<ED_ENCHANTS_LIGHT_SLOT_TWO_THREE.length; i++) {
+			A_EDLOED12.options[i+1] = new Option(ED_ENCHANTS_LIGHT_SLOT_TWO_THREE[i][1],ED_ENCHANTS_LIGHT_SLOT_TWO_THREE[i][0]);
+			A_EDLOED22.options[i+1] = new Option(ED_ENCHANTS_LIGHT_SLOT_TWO_THREE[i][1],ED_ENCHANTS_LIGHT_SLOT_TWO_THREE[i][0]);
 		}
 		for(i=0; i<ED_ENCHANTS_LIGHT_SLOT_TWO_THREE.length; i++) {
 			A_EDLOED13.options[i+1] = new Option(ED_ENCHANTS_LIGHT_SLOT_TWO_THREE[i][1],ED_ENCHANTS_LIGHT_SLOT_TWO_THREE[i][0]);
@@ -6057,12 +6058,12 @@ with(document.calcForm){
 		}
 	}
 
-	tRO_EDEnchantment[6] = document.calcForm.A_EDAC11.value;
-	tRO_EDEnchantment[7] = document.calcForm.A_EDAC12.value;
-	tRO_EDEnchantment[8] = document.calcForm.A_EDAC13.value;
-	tRO_EDEnchantment[9] = document.calcForm.A_EDAC21.value;
-	tRO_EDEnchantment[10] = document.calcForm.A_EDAC22.value;
-	tRO_EDEnchantment[11] = document.calcForm.A_EDAC23.value;
+	tRO_EDEnchantment[12] = document.calcForm.A_EDAC11.value;
+	tRO_EDEnchantment[13] = document.calcForm.A_EDAC12.value;
+	tRO_EDEnchantment[14] = document.calcForm.A_EDAC13.value;
+	tRO_EDEnchantment[15] = document.calcForm.A_EDAC21.value;
+	tRO_EDEnchantment[16] = document.calcForm.A_EDAC22.value;
+	tRO_EDEnchantment[17] = document.calcForm.A_EDAC23.value;
 }}
 
 //custom TalonRO Mora Accessory Enchantment

@@ -967,13 +967,13 @@ ME_ENCHANTABLE = [
 	,[863,52,53,0] //Holy Stick
 	,[1168,52,53,0] //Dead Tree Staff
 	,[1508,52,53,0] //Mental Stick
-	,[936,43,52,53,0] //Dark Thorn Staff
+	,[936,52,53,0] //Dark Thorn Staff
 	,[948,52,53,0] //Eraser
 /* [Two Handed Staves] - Staves Except DEX+2/+3 */
 	,[92,52,53,0] //Wizardry Staff
 	,[1172,52,53,0] //Chronos
 	,[1640,52,53,0] //Staff Of Thea [1]
-	,[647,43,52,53,0] //Divine Cross
+	,[647,52,53,0] //Divine Cross
 	,[646,52,53,0] //Staff of Destruction
 /* [Maces] */
 	,[81,0] //Golden Mace [1]
@@ -1173,7 +1173,6 @@ EDEN_ENCHANTS_ARMOR_SECOND = [
 		,[112,"MDEF+2"]
 		,[113,"MDEF+3"]
 		,[114,"MDEF+4"]
-		,[302,"FLEE+2"]
 		,[303,"FLEE+3"]
 		,[304,"FLEE+4"]
 		,[151,"CRIT+1"]
@@ -1252,8 +1251,8 @@ ED_ENCHANTS_SLOT_ONE = [
 		,[892, "MATK+2%"]
 		,[155, "CRIT+5"]
 		,[157, "CRIT+7"]
-		,[303, "FLEE+6"]
-		,[306, "FLEE+12"]
+		,[306, "FLEE+6"]
+		,[312, "FLEE+12"]
 ];
 //El Dicaste Enchants slot 2 for equipment
 ED_ENCHANTS_SLOT_TWO = [
@@ -1304,8 +1303,8 @@ MORA_ENCHANTS_SLOT_ONE = [
 		,[892, "MATK+2%"]
 		,[155, "CRIT+5"]
 		,[157, "CRIT+7"]
-		,[303, "FLEE+6"]
-		,[306, "FLEE+12"]
+		,[306, "FLEE+6"]
+		,[312, "FLEE+12"]
 ];
 MORA_ENCHANTS_SLOT_TWO = [
 		 [41, "INT+1"]

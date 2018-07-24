@@ -1460,7 +1460,7 @@ ItemOBJ = [
 ,[1431,100,0,0,0,0,0,0,"Magical Booster & Southern Cross Combo",0,"<b>[Refine Rate 5~6]</b><br>On Bosstype monsters, ignore 3% MDEF<br>Adjusts your resistance to normal monsters by -5%<br><b>[Refine Rate 7~10]</b><br>On Bosstype monsters, ignore 4% MDEF<br>Adjusts your resistance to normal monsters by -5%",297,2,0] //Magical Booster & Southern Cross Combo
 ,[1432,100,0,0,0,0,0,0,"Magical Booster & Staff of Piercing Combo",0,"For every refine on the Staff of Piercing, add +3 MATK<br><b>[Refine Rate 10]</b><br>Additional MATK + 25<br>Cast Time - 10%",0] //Magical Booster & Staff of Piercing Combo
 ,[1433,100,0,0,0,0,0,0,"Magical Booster & Hypnotist's Staff Combo",0,"For every refine of the Hypnotist's Staff, add +4 MATK<br><b>[Refine Rate 10]</b><br>Additional MATK + 25<br>After Cast Delay - 10%",0] //Magical Booster & Hypnotist's Staff Combo
-,[1434,51,0,0,0,0,20,10,"Anemos Mask","",0,44,4,0]
+,[1434,51,0,0,0,0,20,10,"Anemos Mask","",0,354,4,0]
 ,[1435,51,0,1,0,0,10,10,"Ice Ear Wing","",0,6,1,0]
 ,[1436,51,0,0,0,0,10,0,"Ifrit Eyes","",0,5,1,153,25,0]
 ,[1437,52,0,0,0,0,5,10,"Poker Card In Mouth","",0,37,1,57,-1,0]
@@ -3839,6 +3839,8 @@ function Item_Setumei(nC1,nC2)
    // if(350 <= nC1 && nC1 <=359)
    //    CBIstr += "Recieve "+ nC2 + "%" + " more damage from " + ZokuseiOBJ2[nC1-350] + " attacks.<BR>";
    //Physical damage against specific monster
+   if(350 <= nC1 && nC1 <=359)
+      CBIstr += "Increases magical damage against [" + ZokuseiOBJ[nC1-350] +"] element monsters by "+ nC2 +"%<BR>";
    if(1000 <= nC1 && nC1 <=1999)
       CBIstr += wIS + nC2 + "% Physical damage inflicted against <b>" + MonsterOBJ[nC1-1000][1] + "</b><br>";
    //Incease Damage of skill by %

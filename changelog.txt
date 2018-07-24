@@ -1,3 +1,24 @@
+[Update 2018-07-23]
+- Added n_tok for magical damage against a certain element (350-359) [Loa]
+- Minor fix to asura damage [Loa]
+- Added IDs for Nightmare Pyramid cards [Loa]
+- Added back INT + 3 to Divine Cross and Dark Thorn Staff [Loa]
+- Fixed Nightmare Verit Card [Loa]
+- Fixed issues with El Dicastes enchants [Loa]
+	Light of El Dicastes 2nd enchant slot now has DEX instead of VIT
+	Fix FLEE enchants
+	Fixed Golden Trickle enchants
+	Corrected some labeling
+
+[Update 2018-07-19]
+- Fixed PVP page can't decompress saved data [NattWara]
+
+[Update 2018-07-17]
+- Added Nightmare Cards and Combos; [Kato]
+
+[Update 2018-07-17]
+- Fixed Bowling Bash damage when used with a Bow [NattWara]
+
 [Update 2018-07-15]
 - Add DEFLATE/INFLATE for string compression/decompression [NattWara]
 - Add data compressor/decompressor, deflate.html [NattWara]
@@ -27,13 +48,6 @@
 - Issue #238: Added vanilla mode [Loa]
 	Main functions at bottom of head.js
 	Vanilla mode saving is not implemented
-
-[Update 2018-07-07]
-- Issue #238: Added vanilla mode [Loa]
-	Moved left hand weapon card option generation to new function PopulateCardsLeft() in card.js
-	Added new function ClearCards() in card.js that removes all card select options
-	Added new function Vanilla() in head.js that switches between vanilla and non-vanilla mode
-		Dependent upon restrictedItems and restrictedCards arrays in etc.js
 
 [Update 2018-07-04]
 - Completed cardID array for linking [Loa]

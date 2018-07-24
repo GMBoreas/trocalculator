@@ -560,6 +560,16 @@ cardOBJ = [
 ,[538,7,"Miming",0,5056,25,7056,25,0]
 ,[539,1,"Pom Spider",0,31,20,0]
 ,[540,1,"Mini Octopus","When dealing magic damage there's a 1.5% chance to cause blind status",0]
+,[541,4,"Nightmare Amon Ra",0,152,50,171,7,176,7,357,7,359,7,0]
+,[542,3,"Nightmare Arclouze",0,52,20,51,20,0]
+,[543,1,"Nightmare Mimic",0,171,5,172,5,0]
+,[544,1,"Nightmare Minorous",0,32,10,31,10,0]
+,[545,6,"Nightmare Mummy","When receiving physical attacks, add a 3% chance to cause Sleep to your target.",155,20,0]
+,[546,5,"Nightmare Ancient Mummy","Every 3 refines of garment increase magical Fire damage by 4%.",60,15,0]
+,[547,6,"Nightmare Verit","Increases magical damage by 3%<br>When using magic attacks, there is a 2% chance to recover 40 HP and 20 SP every 2 seconds for a total of 8 seconds<br><b>[For Every 2 Refines]</b><br> Increases the HP/SP recovery activation chance by an additional 1%<br><b>[Refine Rate >= 5]</b><br>Increases magical damage by an additional 1%<br><b>[Refine Rate >= 7]</b><br>Increases magical damage by an additional 1%",15,4,16,4,296,3,297,3,0]
+,[548,100,0,0,52,5,51,5,312,20,311,20,0]
+,[549,100,0,0,52,5,51,5,302,30,301,30,0]
+,[550,100,0,"Increase the probability of causing Sleep by an additional 2%.",155,10,60,5,0]
 ];
 
 /*
@@ -1116,6 +1126,16 @@ cardID = [
 ,[538,1,4510]
 ,[539,1,4514]
 ,[540,1,4533]
+,[541,1,4652]
+,[542,1,4653]
+,[543,1,4654]
+,[544,1,4655]
+,[545,1,4656]
+,[546,1,4657]
+,[547,1,4658]
+,[548,2,0]
+,[549,2,0]
+,[550,2,0]
 ];
 
 CardNum = cardOBJ.length -1;
@@ -1313,7 +1333,10 @@ w_SC = [[429,235,306,"NULL"],
 [459,279,408,224,340,230,"NULL"],
 [460,337,193,346,379,350,"NULL"],
 [461,326,175,281,388,104,"NULL"],
-[496,485,494,"NULL"]
+[496,485,494,"NULL"],
+[548,542,543,"NULL"],
+[549,542,544,"NULL"],
+[550,545,546,"NULL"]
 ];
 SC_MAXnum = w_SC.length;
 
