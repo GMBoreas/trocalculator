@@ -3169,6 +3169,10 @@ function BattleMagicCalc(wBMC)
 		wBMC2 = Math.floor(wBMC2 * (1 + 0.05 * n_A_ActiveSkillLV));
 
 	var wX = n_tok[170+n_B[2]];
+	// Increases magical damage against bosstype monsters
+	if (n_B[19] == 1) {
+		wX += n_tok[97]
+	}
 	wX += n_tok[350+Math.floor(n_B[3]/10)];
 	if(n_B[2]==9  && SkillSearch(234))
 		wX += SkillSearch(234) *2;

@@ -570,6 +570,9 @@ cardOBJ = [
 ,[548,100,0,0,52,5,51,5,312,20,311,20,0]
 ,[549,100,0,0,52,5,51,5,302,30,301,30,0]
 ,[550,100,0,"Increase the probability of causing Sleep by an additional 2%.",155,10,60,5,0]
+,[551,3,"Bangungot",0,77,20,79,15,151,30,153,30,154,30,159,30,0]
+,[552,3,"Bakonawa","For Non-Monk classes, increase physical damage against Boss monsters by 15%<br />For Monk classes, increase physical damage against Boss monsters by 10%",77,20,79,-35,0]
+,[553,3,"Buwaya",0,77,20,79,-35,97,7,0]
 ];
 
 /*
@@ -1136,6 +1139,9 @@ cardID = [
 ,[548,2,0]
 ,[549,2,0]
 ,[550,2,0]
+,[550,1,4590]
+,[551,1,4591]
+,[552,1,4592]
 ];
 
 CardNum = cardOBJ.length -1;

@@ -3964,6 +3964,7 @@ n_A_MaxHP += SkillSearch(156) * 200;
 			}
 		}
 	}
+
 	//[Custom TalonRO 2018-07-10 - Biolab Weapon Enchantment for Spell Element] [NattWara]
 	var eTypes = [0,0,0,0,0]; // 0 Neural, 1 Water, 2 Earth, 3 Fire, 4 Wind
 	var aMSnoEle = [373,374,375]; // Magical skills without proper element (will change depending on n_A_Weapon_zokusei)
@@ -4291,6 +4292,13 @@ function StPlusCalc()
 			wSPC_DEX += Math.floor(n_A_HEAD_DEF_PLUS /3);
 		else
 			wSPC_INT += Math.floor(n_A_HEAD_DEF_PLUS /3);
+	// custom TalonRO Bakonawa Card
+	if (CardNumSearch(552)) {
+		if (n_A_JobSearch(15) || n_A_JobSearch(29))
+			n_tok[26] += 10
+		else
+			n_tok[26] += 15
+	}
 	//custom TalonRO Cendrawasih Card
 	if(CardNumSearch(517))
 		if(n_A_JobSearch()==5)

@@ -3749,9 +3749,9 @@ function Item_Setumei(nC1,nC2)
 	if(88 == nC1)
 		CBIstr += "MATK"+ wIS + nC2 +"% (Staff Type)<BR>";
     //Increase MATK by %
-  if(89 == nC1)
+   if(89 == nC1)
 		CBIstr += "MATK"+ wIS + nC2 +"%<BR>";
-	if(91 == nC1)
+   if(91 == nC1)
 		CBIstr += "Heal amount increased by "+ wIS + nC2 +"%<BR>";
 	if(92 == nC1)
 		CBIstr += "Healing received increased by "+ wIS + nC2 +"%<BR>";
@@ -3761,7 +3761,9 @@ function Item_Setumei(nC1,nC2)
 		CBIstr += "Sanctuary effectiveness increased by "+ wIS + nC2 +"%<BR>";
 	if(96 == nC1)
 		CBIstr += "Sanctuary damage effectiveness against Demon increased by "+ wIS + nC2 +"%<BR>";
-	if(110 <= nC1 && nC1 <=119)
+	if(97 == nC1)
+      CBIstr += "Increases magical damage against bosstype monsters by "+ nC2 +"%<BR>";
+   if(110 <= nC1 && nC1 <=119)
 		CBIstr += "Increases the critical rate on [" + SyuzokuOBJ[nC1-110] +"] race monsters by "+ wIS + nC2 +"<BR>";
 	if(120 <= nC1 && nC1 <=129)
 		CBIstr += "Experience gained from [" + SyuzokuOBJ[nC1-120] +"] race monsters "+ wIS + nC2 +"%<BR>";
@@ -3858,6 +3860,7 @@ function Item_Setumei(nC1,nC2)
    //Magical damage against element monster
    if(350 <= nC1 && nC1 <=359)
       CBIstr += "Increases magical damage against [" + ZokuseiOBJ[nC1-350] +"] element monsters by "+ nC2 +"%<BR>";
+      
    //Physical damage against specific monster
    if(1000 <= nC1 && nC1 <=1999)
       CBIstr += wIS + nC2 + "% Physical damage inflicted against <b>" + MonsterOBJ[nC1-1000][1] + "</b><br>";
