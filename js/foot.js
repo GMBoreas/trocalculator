@@ -4294,7 +4294,7 @@ function StPlusCalc()
 			wSPC_INT += Math.floor(n_A_HEAD_DEF_PLUS /3);
 	// custom TalonRO Bakonawa Card
 	if (CardNumSearch(552)) {
-		if (n_A_JobSearch(15) || n_A_JobSearch(29))
+		if (n_A_JobSearch2() == 15)
 			n_tok[26] += 10
 		else
 			n_tok[26] += 15
