@@ -760,6 +760,24 @@ if(EquipNumSearch(1085)){
 		}
 }
 
+/*
+	Valorous Battlefield Morning Star (damage)
+	[Refine level 8-10]
+	ATK + 20
+*/
+if(EquipNumSearch(907) && n_A_Weapon_ATKplus >= 8) {
+	n_tok[17] += 20;
+}
+/*
+	Brave Battlefield Morning Star (damage)
+	[Refine level 8-10]
+	[Alchemist Class]
+	ATK + 30
+*/
+if(EquipNumSearch(908) && n_A_Weapon_ATKplus >= 8 && n_A_JobSearch2() == 19) {
+	n_tok[17] += 30;
+}
+
 
 /*
 Player Stats - n_tok[]
@@ -2450,6 +2468,24 @@ n_A_MaxHP += SkillSearch(156) * 200;
 			C_ATK += 6;
 	}
 
+	/*
+		Valorous Battlefield Morning Star (display attack)
+		[Refine level 8-10]
+		ATK + 20
+	*/
+	if(EquipNumSearch(907) && n_A_Weapon_ATKplus >= 8) {
+		C_ATK += 20;
+	}
+	/*
+		Brave Battlefield Morning Star (display attack)
+		[Refine level 8-10]
+		[Alchemist Class]
+		ATK + 30
+	*/
+	if(EquipNumSearch(908) && n_A_Weapon_ATKplus >= 8 && n_A_JobSearch2() == 19) {
+		C_ATK += 30;
+	}
+
 	if(EquipNumSearch(1120) && n_A_JobSearch()==4)
 		C_ATK += 10;
 	if(EquipNumSearch(1165))
@@ -3713,10 +3749,15 @@ n_A_MaxHP += SkillSearch(156) * 200;
 		n_tok[57] += (n_A_HEAD_DEF_PLUS - 5) * 2;
 	}
 
-	//[TalonRO Custom - 2018-07-26 - Valorous Battlefield Morning Star/Glorious Morning Star - [+Aegis Shield or Monk/Champion] Reduces physical attack against Demi-human monster by 20%] [Amor]
-	if((EquipNumSearch(907) || EquipNumSearch(1086)) && ((EquipNumSearch(1376) || n_A_JobSearch2() == 15))) {
-		n_tok[37] -= 20;
+	/*
+		Valorous Battlefield Morning Star
+		[+ Monk Class]
+		Decreases physical attack against DemiHuman monster by 15%.
+	*/
+	if(EquipNumSearch(907) && n_A_JobSearch2() == 15) {
+		n_tok[37] -= 15;
 	}
+
 	//[TalonRO Custom - 2018-07-26 - Glorious Cleaver/Glorious Flamberge/Glorious Gladius - [+Aegis Shield] Reduces physical attack against Demi-human monster by 20%] [Amor]
 	if((EquipNumSearch(1088) || EquipNumSearch(1077) || EquipNumSearch(1076)) && EquipNumSearch(1376)) {
 		n_tok[37] -= 20;
