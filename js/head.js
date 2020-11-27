@@ -7447,7 +7447,7 @@ function calc()
 	debug_atk+="\nb_BattleCalc999:"+n_A_DMG[1];
 	BattleCalc999();
 	// Update Extended Info
-	KakutyouKansuu();
+	//  KakutyouKansuu();
 	debug_atk+="\na_BattleCalc999 (w_DMG[1]):"+w_DMG[1]+"\n\tn_A_DMG[1]:"+n_A_DMG[1];
 
 	if(Taijin==1 && n_Enekyori==0){

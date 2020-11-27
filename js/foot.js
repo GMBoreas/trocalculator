@@ -4254,7 +4254,7 @@ function StAllCalc()
 	
 	// Update Extended Information
 	KakutyouKansuu();
-	KakutyouKansuu2();
+	// KakutyouKansuu2();
 }}
 
 function StPlusCalc()
@@ -6948,7 +6948,6 @@ function KakutyouKansuu2(){
 
 		return;
 	}
-	myInnerHtml("A_KakutyouSel","",0);
 }
 
 function SetCardShort(){
