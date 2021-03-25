@@ -1750,7 +1750,7 @@ ItemOBJ = [
 ,[1700,63,108,2,0,1,40,60,"Enforcer Shoes","","Reduce SP Cost of [Grimtooth] by 1.<br>Reduce SP Cost of [Meteor Assault] by 8.<br>[Every Refine Level]<br>HIT + 1",15,10,0]
 ,[1701,100,0,0,0,0,0,0,"Enforcer Cape + Enforcer Shoes","", "[Meteor Assault] 10% Aftercast Reduction ",7264,30,0]
 ,[1702,64,1001,0,0,1,10,70,"Sprint Glove","","",73,-1,74,1,0]
-,[1703,100,0,0,0,0,0,0,"Sprint Glove + Sprint Ring + Sprint Mail + Sprint Shoes","","Fast movement all the time.",15,8,16,8,73,-9,0]
+,[1703,100,0,0,0,0,0,0,"Sprint Glove + Sprint Ring + Sprint Mail + Sprint Shoes","","Fast movement all the time.",15,8,16,8,73,-1,0]
 ,[1704,64,1001,0,0,"0 / 1",10,1,"STR Glove","","<br>[Every 10 points of STR]<br>ATK + 1<br>[Base STR >= 80]<br>ATK + 1%",13,100,14,20,0]
 ,[1705,64,1001,0,0,"0 / 1",10,1,"AGI Glove","","<br>[Every 10 points of AGI]<br>FLEE + 1<br>[Base AGI >= 80]<br>Perfect Dodge + 1",13,100,14,20,0]
 ,[1706,64,1001,0,0,"0 / 1",10,1,"VIT Glove","","<br>[Every 10 points of VIT]<br>MaxHP + 50<br>[Base VIT >= 80]<br>DEF + 1",13,100,14,20,0]
