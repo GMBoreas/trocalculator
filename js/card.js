@@ -65,7 +65,7 @@ cardOBJ = [
 ,[43,1,"Sidewinder","Enable the use of [Double Attack]Lv 1 (with all weapons)<BR>If you know a level higher than 1, you will use that level instead",0]
 ,[44,1,"Phreeoni",0,8,100,0]
 ,[45,1,"Baphomet","All regular attacks become 3x3 splash damage like a Bowling Bash Effect Permanently",8,-10,0]
-,[46,1,"Hunter Fly","Enables a 3% chance of gaining 15% of the damage inflicted on an enemy as HP with each attack",0]
+,[46,1,"Hunter Fly","Enables a 3% chance of gaining 15% of the damage inflicted on an enemy as HP with each attack",380,3,381,15,0]
 ,[47,1,"Dracula","-1500 HP on unequip (not calced)",190,4,191,4,192,4,0] //custom TalonRO -4% dmg from all sizes
 ,[48,2,"Willow",0,14,80,0]
 ,[49,2,"Elder Willow",0,4,2,0]
@@ -138,14 +138,14 @@ cardOBJ = [
 ,[116,2,"Ghoul",0,18,1,150,20,0]
 ,[117,2,"Giearth",0,157,100,62,15,0]
 ,[118,2,"Marduk",0,156,100,0]
-,[119,2,"Mistress","Skills requiring gemstones to cast no longer require them.<BR>SP cost of skills + 25%",0]
-,[120,2,"Pharaoh","SP cost of skills - 30%",0]
+,[119,2,"Mistress","Skills requiring gemstones to cast no longer require them.",72,25,0]
+,[120,2,"Pharaoh",0,72,-30,0]
 ,[121,3,"Soldier Andre",0,53,30,0]
 ,[122,3,"Anubis",0,58,30,0]
 ,[123,3,"Megalodon",0,18,1,152,20,0]
 ,[124,3,"Argos",0,18,1,159,20,0]
 ,[125,3,"Munak",0,18,1,62,5,159,15,0]
-,[126,3,"Golden Thief Bug","Immunity to all magic (including Heal, Buffs ,Quagmire, etc).<BR>SP cost of skills + 100%",0]
+,[126,3,"Golden Thief Bug","Immunity to all magic (including Heal, Buffs ,Quagmire, etc)",72,100,0]
 ,[127,3,"Maya","Enable to use [Auto-Guard] lvl 2 (not calced)",19,20,0] //custom TalonRO enables Auto-Guard lv2; mdef+20
 ,[128,4,"Swordfish",0,18,1,198,1,0]
 ,[129,4,"Sandman",0,18,1,198,2,0]
@@ -163,7 +163,7 @@ cardOBJ = [
 ,[141,7,"Berzebub",0,73,-30,0]
 ,[142,7,"Poison Spore",0,220,20,0]
 ,[143,7,"Marine Sphere",0,220,21,0]
-,[144,7,"Vitata","SP cost of skills + 25%",220,5,0]
+,[144,7,"Vitata",0,72,25,220,5,0]
 ,[145,7,"Smokie",0,220,22,0]
 ,[146,7,"Creamy",0,220,23,0]
 ,[147,7,"Poporing",0,220,24,0]
@@ -181,11 +181,11 @@ cardOBJ = [
 ,[159,1,"Howard Alt-Eisen",0,8,30,12,-5,0]
 ,[160,1,"Cecil Damon",0,12,5,8,-30,0]
 ,[161,1,"Whitesmith","Add a low chance to cast Level 4 Meltdown when attacking",0] //custom TalonRO low chance for lv4 Meltdown
-,[162,1,"Sniper","When attacking with an ATK based attack, adds a 10% chance to absorb 20% of the damage inflicted on the enemy as HP",75,-10,0] //custom TalonRO 10% chance to absorb instead of 5%; HPregen -10% instead of -100%
+,[162,1,"Sniper","When attacking with an ATK based attack, adds a 10% chance to absorb 20% of the damage inflicted on the enemy as HP",380,10,381,20,75,-10,0] //custom TalonRO 10% chance to absorb instead of 5%; HPregen -10% instead of -100%
 ,[163,1,"Breeze",0,17,5,138,5,0]
 ,[164,1,"Solace","When equipped by a priest:<BR>When attacking with an ATK based attack, adds a chance to autocast [Grand Cross]Lv 5",0]
 ,[165,1,"Thanatos Maero",0,17,5,221,55,0]
-,[166,1,"Thanatos","Bypass 30% of enemy DEF (both boss and non-boss)",18,-15,9,-15,0] //custom TalonRO 30% def bypass (boss+non-boss), def-15;flee-15;no ice pick effect
+,[166,1,"Thanatos",0,18,-15,9,-15,21,30,22,30,0] //custom TalonRO 30% def bypass (boss+non-boss), def-15;flee-15;no ice pick effect
 ,[167,1,"Hill Wind","When unequipping the weapon with this card, drains 50 sp from you",5057,5,5126,5,5127,5,0]
 ,[168,1,"Laurell Weinder","When un equipping the weapon with this card, drains 50 sp from you.",5130,3,5131,3,0]
 ,[169,1,"Deathword","When un equipping the weapon with this card, drains 50 sp from you",5046,5,5047,5,5277,5,0]
@@ -279,9 +279,9 @@ cardOBJ = [
 ,[257,6,"Gajomart",0,123,10,53,-20,0]
 ,[258,5,"Kapha","If refined to +5 or less, gain MDEF+8",0]
 ,[259,1,"Crab","Increase damage on [Aster] by 30%",1240,30,17,5,0]
-,[260,7,"Shinobi","10% chance of casting lv5 [Cloaking] when recieving ATK based damage",2,1,0]
-,[261,4,"Karakasa","3% chance of inflicting [Chaos] when recieving ATK based damage<BR>If the user has 77 Base STR or higher, 9% chance instead",0]
-,[262,7,"Galapago","3% chance of obtaining Apple Juice, Banana Juice and Carrot Juice when killing an Insect race monster<BR>Increase recovery by 50% with those items",0]
+,[260,7,"Shinobi","10% chance of casting lv5 [Cloaking] when receiving ATK based damage",2,1,0]
+,[261,4,"Karakasa","3% chance of inflicting [Chaos] when receiving ATK based damage<BR>If the user has 77 Base STR or higher, 9% chance instead",0]
+,[262,7,"Galapago","3% chance of obtaining Apple Juice, Banana Juice and Carrot Juice when killing an Insect race monster",218,[531,50,1],218,[532,50,1],218,[534,50,1],0]
 ,[263,1,"Gig","Regain 5 SP when killing a Insect race monster with a ATK based attack<BR>Drains 5 SP when the weapon is unequipped",0]
 ,[264,4,"Chimera","3% chance of inflicting Poison status when receiving ATK based damage<BR>If equipped by an Assassin job type, 9% chance instead",0]
 ,[265,1,"Caterpillar","Regain 5 SP when killing a Plant race monster with a ATK based attack<BR>Drains 5 SP when the weapon is unequipped",0]
@@ -316,7 +316,7 @@ cardOBJ = [
 ,[294,5,"Vagabond Wolf",0,1,1,0]
 ,[295,5,"Wanderer","If equipped by a Thief job type: Flee Rate +20",221,68,0]
 ,[296,1,"Tri Joint","Regain 5 SP when killing a Formless race monster with a ATK based attack<BR>Drains 5 SP when the weapon is unequipped",0]
-,[297,7,"Sea-Otter","3% chance of Raw Fish and Sushi dropping when killing a Fish race monster<BR>+50% HP restoration with those items",0]
+,[297,7,"Sea-Otter","3% chance of Raw Fish and Sushi dropping when killing a Fish race monster",218,[544,50,1],218,[551,50,1],0]
 ,[298,2,"Carat","If the headgear is upgraded to +9 or higher: SP +150",4,2,0]
 ,[299,4,"Kraben","6% chance of inflicting [Blind] status when receiving ATK based damage",0]
 ,[300,6,"Skeleton General",0,124,10,54,-20,0]
@@ -333,7 +333,7 @@ cardOBJ = [
 ,[311,1,"Dark Priest","+5% chance of decreasing the target's SP by 10%<BR>If equipped by a Sage job type: Regain 1 SP with each ATK based attack",0]
 ,[312,5,"Stem Worm",0,5,5,0] //custom TalonRO dex+5; diff position
 ,[313,2,"Stormy Knight",0,9,20,0] //custom TalonRO flee +20; diff position
-,[314,7,"Spring Rabbit","2% chance of [Meat] and [Monster's Feed] item dropping when killing a Brute race monster<BR>+50% HP restoration with those items",0]
+,[314,7,"Spring Rabbit","2% chance of [Meat] and [Monster's Feed] item dropping when killing a Brute race monster",218,[517,50,1],218,[528,50,1],0]
 ,[315,7,"Sleeper","1% chance of [Box of Drowsiness] item dropping when killing a Fish race monster",0]
 ,[316,7,"Sage Worm","0.3% chance of Blue/Red/Yellow Gemstone item dropping when killing a monster",0]
 ,[317,4,"Solider",0,18,2,19,2,0]
@@ -343,7 +343,7 @@ cardOBJ = [
 ,[321,4,"Dark Frame","6% chance of inflicting [Stone] status when receiving ATK based damage",0]
 ,[322,6,"Dark Lord",0,15,50,0] //custom TalonRO hp+50%; no autoskill
 ,[323,1,"Turtle General",0,80,20,0] //custom TalonRO; no autostkill
-,[324,7,"Dumpling Child","3% chance of Candy, and 1% chance of Candy Cane item dropping when killing a Demi-human race monster<BR>+50% HP restoration with those items",0]
+,[324,7,"Dumpling Child","3% chance of Candy, and 1% chance of Candy Cane item dropping when killing a Demi-human race monster",218,[529,50,1],218,[530,50,1],0]
 ,[325,1,"Chepet","(on your enemy, not yourself)",221,74,0]
 ,[326,1,"Zipper Bear","1 SP is drained with each physical attack<BR>If equipped by a Merchant job type: Weapon becomes unbreakable",17,30,0]
 ,[327,5,"Choco",0,9,10,11,5,0]
@@ -351,7 +351,7 @@ cardOBJ = [
 ,[329,1,"Diabolic","Regain 5 SP when killing a Demon race monster with a ATK based attack<BR>Drains 5 SP when the weapon is unequipped",0]
 ,[330,4,"Demon Pungus","6% chance of inflicting [Sleep] status when receiving ATK based damage",0]
 ,[331,4,"Wraith Dead","6% chance of inflicting [Curse] status when receiving ATK based damage",0]
-,[332,2,"Bacsojin","Increase SP consumption by 15%",57,-10,91,20,93,20,94,20,0] //custom TalonRO heal-stuff +20% instead of +30; +10% dmg from demi-human
+,[332,2,"Bacsojin",0,57,-10,72,15,91,20,93,20,94,20,0] //custom TalonRO heal-stuff +20% instead of +30; +10% dmg from demi-human
 ,[333,4,"Sky Deleter","Regain 100 HP each time a monster is killed with a ATK based attack",75,-100,0]
 ,[334,4,"Earth Deleter","Regain 10 SP each time a monster is killed with a ATK based attack<BR>Drains 100 SP when the armor is unequipped",76,-100,0]
 ,[335,7,"Greatest General","0.2% chance of casting level 5 Summon Spirit Sphere when doing a ATK based attack<BR>If equipped by an Acolyte job type: 2% chance instead",0]
@@ -376,7 +376,7 @@ cardOBJ = [
 ,[354,7,"Heater","<b>[Swordman Class]</b><br>Perfect Dodge +3",10,3,0]
 ,[355,1,"Beetle King","Regain 5 SP when killing a Fish race monster with a ATK based attack<BR>Drains 5 SP when the weapon is unequipped",0]
 ,[356,1,"Aster","+30% damage on [Shellfish]",1059,30,17,5,0]
-,[357,1,"Kiel D-01","Add a 10% chance of gaining 5% of the damage inflicted upon an enemy as SP with each attack. (not calced)<BR>Add a 10% chance of decreasing enemy's SP amount by 5% when attacking. (not calced)",0] //custom TalonRO - diff position
+,[357,1,"Kiel D-01","Add a 10% chance of gaining 5% of the damage inflicted upon an enemy as SP with each attack. (not calced)<BR>Add a 10% chance of decreasing enemy's SP amount by 5% when attacking. (not calced)",382,10,383,5,0] //custom TalonRO - diff position
 ,[358,3,"Parasite",0,60,5,18,1,0]
 ,[359,1,"False Angel","Regain 5 SP when killing a Angel race monster with a ATK based attack<BR>Drains 5 SP when the weapon is unequipped",0]
 ,[360,1,"Phendark","Regain 5 SP when killing a Demi-human race monster with a ATK based attack<BR>Drains 5 SP when the weapon is unequipped",0]
@@ -408,7 +408,7 @@ cardOBJ = [
 ,[386,7,"Raydric Archer","1% chance of [Box of Resentment] item dropping when killing a Demon race monster",0]
 ,[387,2,"Leib Olmai","1% chance of [Red Blood] item dropping when killing a Brute race monster",63,10,0]
 ,[388,6,"Raggler",0,1,1,3,1,0]
-,[389,7,"Hermit Plant","3% chance of [Hed Herb], 2% chance of [Yellow Herb], and 1% chance of [White Herb] item dropping when killing a Plant race monster<BR>+50% HP restoration with those items",0]
+,[389,7,"Hermit Plant","3% chance of [Red Herb], 2% chance of [Yellow Herb], and 1% chance of [White Herb] item dropping when killing a Plant race monster",218,[507,50,1],218,[508,50,1],218,[509,50,1],0]
 ,[390,1,"Rotar Zairo",0,70,10,115,7,0]
 ,[391,6,"Wild Rose","If equipped by a Thief job type: Perfect Dodge +5",2,1,0]
 ,[392,4,"Tao Gunka",0,15,100,18,-50,19,-50,0]
@@ -506,7 +506,7 @@ cardOBJ = [
 ,[484,6,"Ice Titan","When receiving ATK based damage there is a 0.3% chance that you'll receive DEF + 10 for 10 seconds",3,2,0]
 ,[485,6,"Zombie Slaughter","The player recovers 50 HP each time a monster is killed with a ATK based attack",37,1,177,1,0]
 ,[486,4,"Fallen Bishop Hibram","Add a 100% chance of auto casting Level 2 Magic Mirror when the user receives Magical Damage",0] //custom TalonRO add autocast; removed matk stuff - diff position
-,[487,7,"Snowier","Adds a 20% chance to gain [Ice Cream] when killing a monster<BR>Increases recovery of the item [Ice Cream] by 100%",0]
+,[487,7,"Snowier","Adds a 20% chance to gain [Ice Cream] when killing a monster",218,[536,100,0],0]
 ,[488,7,"Siroma",0,5054,25,7054,25,0]
 ,[489,7,"Gazeti",0,221,94,0]
 ,[490,7,"Galion",0,8,5,41,5,0]
@@ -514,13 +514,13 @@ cardOBJ = [
 ,[492,7,"Ifrit","Increases your ATK and HIT by 1 for every 5 job levels you have<BR>Increases your Crit by 1 for every 10 job levels you have",0] //custom TalonRO atk+hit increase every 5jlvl; removed autocast
 ,[493,7,"Imp",0,5051,25,7051,25,0]
 ,[494,7,"Ragged Zombie","When dealing ATK based damage there is a 0.1% chance to cause [Bleeding] status on the opponent.",117,5,37,1,177,1,0]
-,[495,7,"Hell Poodle","Increases recovery of the item [Meat] by 100%<BR>When dealing ATK based damage there's a 0.5% chance to cause [Bleeding] status on the opponent",8,1,0]
+,[495,7,"Hell Poodle","When dealing ATK based damage there's a 0.5% chance to cause [Bleeding] status on the opponent",8,1,218,[517,100,0],0]
 ,[496,100,0,"Recover 2SP each time you kill a monster with a ATK based attack",0]
 ,[497,999,"Beelzebub NPC Card","<br><b>*Warning*</b>Having more then one Beelzebub NPC Card doesn't give -60% cast, it will give you -30% always.<b>*Warning*</b>",73,-30,0] //replace me
 ,[498,1,"Hillsrion",0,17,25,0]
 ,[499,1,"Centipede Larva",0,4,1,98,3,0]
 ,[500,4,"Banshee Master",0,4,1,98,10,0]
-,[501,4,"Entweihen Crothen",0,5,1,98,50,0]
+,[501,4,"Entweihen Crothen","<br><b>[Every 10 Base INT]</b><br>MATK + 10, limited to a maximum of 50 additional MATK",5,1,98,50,0]
 ,[502,3,"Aqua Elemental",0,61,20,41,5,0]
 ,[503,3,"Centipede",0,65,20,45,5,0]
 ,[504,3,"Cornus",0,66,20,46,5,0]
@@ -544,7 +544,7 @@ cardOBJ = [
 ,[521,5,"Leak","Chance of causing Confusion on target enemy when doing magic damage",4,5,190,10,191,10,192,10,0]
 ,[522,4,"Comodo",0,9,-20,18,8,0]
 ,[523,1,"Sropho",0,17,5,152,3,158,3,0]
-,[524,1,"Sedora","<b>[Thief Class]</b><br>Flee Rate +4",10,15,0]
+,[524,1,"Sedora","<b>[Thief Class]</b><br>Flee Rate +4",70,15,0]
 ,[525,4,"Pot Dofle",0,55,10,64,10,63,-10,198,1,0]
 ,[526,5,"Kraken","25% chance of causing Sleep effect when using Raid",9,20,220,22,220,54,0]
 ,[527,2,"King Dramoh","<b>[Swordsman Class]</b><br>STR + 1 for every 3 refines",1,2,0]
@@ -552,7 +552,7 @@ cardOBJ = [
 ,[528,7,"Gold Scaraba","Increases your ATK by 1 for every 5 job levels you have",15,-1,0]
 ,[529,1,"Gold Queen Scaraba","Add a 1% Magical Defense bypass (with rod-type weapon)",12,15,190,1,191,1,192,1,0]
 //custom TalonRO [Update 2015-01-01]
-,[530,2,"Pinguicula","<b>[Ninja Class]</b><br>Nullifies the use of Ninja Stones when casting skills<br>Increases SP usage of all skills by 25%",0]
+,[530,2,"Pinguicula","<b>[Ninja Class]</b><br>Nullifies the use of Ninja Stones when casting skills",72,25,0]
 //custom TalonRO [Update 2015-12-29]
 ,[531,7,"Nepenthes","",78,5,0]
 //[Custom TalonRO - Update 2018-06-05] [Kato]
@@ -579,13 +579,13 @@ cardOBJ = [
 ,[552,3,"Bakonawa","For Non-Monk classes, increase physical damage against Boss monsters by 15%.<br/>For Monk classes, increase physical damage against Boss monsters by 10%.",77,20,79,-35,0]
 ,[553,3,"Buwaya",0,77,20,79,-35,97,7,0]
 ,[554,2,"Bungisngis","For every refine after +5, MaxHP + 1%, MaxSP + 1%.",15,5,16,5,0]
-,[555,2,"Engkanto","Ignore 25% of Plant monster defense.",45,25,0]
-,[556,1,"Manananggal",0,5025,20,92,3,95,3,0]
+,[555,2,"Engkanto",0,45,25,183,25,0]
+,[556,1,"Manananggal",0,5025,20,92,3,95,3,217,3,0]
 ,[557,4,"Mangkukulam",0,16,10,0]
 ,[558,2,"Tikbalang","[Refine Rate +7 or higher]<br/>Add another 5% damage with Wind Magic.<br/>[Refine Rate +9 or higher]<br/>Add another 5% damage with Wind Magic.",98,10,344,5,0]
 ,[559,7,"Tiyanak",0,117,7,112,7,115,7,0]
-,[560,5,"Wakwak","For every 10 Base STR, ATK + 5.",0]
-,[561,5,"Jejeling","For every 10 Base VIT, HP + 200",0]
+,[560,5,"Wakwak","<b>[Every 10 Base STR]</b> ATK + 5",0]
+,[561,5,"Jejeling","<b>[Every 10 Base VIT]</b> HP + 200",0]
 ,[562,4,"Wood Goblin","[Every Refine Level]<br/>Increase physical damage against Water and Earth by 1%",41,5,42,5,0]
 ,[563,7,"Les",0,5,2,364,4,365,4,0]
 ,[564,2,"Uzhas","[Refine Rate +7 or higher]<br/>Increases magic damage against Demon race by an additional 5%.<br/>[Refine Rate +9 or higher]<br/>Increases magic damage against Demon race by an additional 5%.",98,10,176,5,0]
@@ -618,13 +618,46 @@ cardOBJ = [
 ,[591,1,"Naga","Causes Stun effect to enemies when using [Mist Slash] at a 12% chance.",5400,35,0]
 ,[592,1,"Draco Egg","[Crimson Fire Formation] shoves the enemy 2 cells back <b>does not stack</b>.",5053,25,5408,25,0]
 ,[593,1,"Bradium Golem","Increase Kick Skill rate by 5%.",8,15,5331,15,5333,15,5335,15,5337,15,0]
-,[594,1,"Ancient Tree",0,75,15,16,15,5375,5,0]
+,[594,1,"Ancient Tree",0,75,25,76,25,5375,7,0]
 ,[595,6,"Zakudam","<br/>[Monk Class]<br/>Reduces physical damage against [Demi-Human] race monsters by 10%.",37,20,177,7,5197,-10,5321,-10,0]
 ,[596,100,"Zakudam + Archdam","[Vanilla Mode]<br/>Cast Time - 30%",0]
 ,[597,2,"Cobalt Mineral",0,17,15,19,5,0]
 ,[598,100,"Cobalt Mineral + Mineral","[Knight, Blacksmith, Assassin][Vanilla Mode]<br/>Horn Card Not Equipped: Long Range Resist + 20%",17,25,152,50,0]
 ,[599,2,"Hell Apocalypse",0,15,5,13,200,0]
 ,[600,100,"Hell Apocalypse + Apocalypse","[If Apocalypse Card Equipped on Meteor Plate]<br/>Gain protection from the Freeze status.",15,5,152,50,0]
+// Old Glast Heim
+,[601,1,"1st Commander of Destruction",0,8,5,5073,25,0]
+,[602,1,"2nd Commander of Destruction", "<b>[If Two-Handed Spear Equipped]</b><br/> 50% more damage with [Holy Cross].",8,5,0]
+,[603,4,"Corrupted Soul","Add a 10% chance to cause Curse or Stone Curse status when attacked physically.",18,5,19,5,0]
+,[604,2,"Amdarais","[Cart Termination] damage inflicted on [Ghost] Element monsters by 25%.<br>[Cart Termination] damage inflicted on [Neutral] Element monsters by 10%.",300,10,308,25,0]
+// Eclage
+,[605,1,"Menblatt",0,8,5,5394,25,5395,25,0]
+,[606,5,"Petal","<b>[Every 10 Base LUK]</b> Critical Attack + 2%",0]
+,[607,1,"Cenere",0,70,10,5401,25,0]
+,[608,100,"Cenere + Naga","[Mist Slash] HIT Rate + 50%.",5400,65,0]
+,[609,5,"Antique Book","<b>[Every 10 Base AGI]</b> ASPD + 1%<br><b>[Every 2 Refine Levels]</b> AGI + 1",0]
+,[610,2,"Faithful Manager","<b>[If Book Equipped]</b><br>ATK + 20<br>CRIT + 12<br><b>[Every Book Refine Level]</b><br>ASPD + 1%",0]
+,[611,2,"Red Lichtern","[Refine Rate +7 or higher]<br/>Increases Fire elemental magic damage by an additional 5%<br/>[Refine Rate +9 or higher]<br/>Increases Fire elemental magic damage by an additional 5%",98,10,343,5,0]
+,[612,2,"Yellow Lichtern","<b>[Ninja Class]</b><br>25% more damage with [Wind Blade].<br>Use the level learned instead of level 5.",98,10,221,148,0]
+,[613,2,"Green Lichtern","[Refine Rate +7 or higher]<br/>Increases Earth elemental magic damage by an additional 5%<br/>[Refine Rate +9 or higher]<br/>Increases Earth elemental magic damage by an additional 5%",98,10,342,5,0]
+,[614,2,"Blue Lichtern",0,18,1,152,20,0]
+// Bio Lab 4
+,[615,5,"Randel","<b>[Crusader Class]</b><br>Add FLEE and CRIT + 20 while under the effect of [Spear Quicken].<br><b>[Other Classes & Every 2 Refine Levels]</b><br>AGI + 1<br>",60,10,0]
+,[616,1,"Flamel",0,5244,25,5248,15,199,3,200,3,0]
+,[617,1,"Celia","<br><b>[Sage Class]</b><br>Pierce MDEF by 2%",4,1,8051,5,8054,5,8056,5,0]
+,[618,1,"Chen","Combo skills delay decreased by 12%",8,15,5188,15,5189,15,5290,15,0]
+,[619,2,"Gertie","<b>[Rogue Class, Super Novice]</b><br>[Double Attack] Rate + 10%<br><b>[Rogue Class, Monk Class]</b><br>[Triple Attack] Rate + 10%",12,5,0]
+,[620,7,"Alphoccio","<br><b>[PvM Only]</b><br>[Poem of Bragi] Aftercast Rate + 1%",3,2,4,2,0]
+,[621,7,"Trentini","[Fortune's Kiss] CRIT + 5%",2,2,6,2,0]
+,[622,3,"Paladin Randel",0,77,10,79,10,5159,20,5384,20,5324,20,5162,20,0]
+,[623,5,"Creator Flamel","<b>[PvM Only]</b><br>Add a 25% chance to ignore Fire Bottle, Acid Bottle, and Glistening Coat requirements when using skills that require them.",4,3,5,2,190,10,191,10,192,10,0]
+,[624,6,"Professor Celia","No movement penalty when using [Free Cast].<br><b>[Every 8 Base INT]</b><br>ASPD + 2%<br><b>[Every 8 Base STR]</b><br>MATK + 1%",15,20,0]
+,[625,2,"Champion Chen","Ignore Spirit Sphere Requirement for All Combo Skills.",0]
+,[626,1,"Stalker Gertie",0,9,10,80,15,0]
+,[627,1,"Clown Alphoccio","Ignore 10% of enemy Defense with [Arrow Vulcan].",5292,20,0]
+,[628,100,"Clown Alphoccio + Clown", "<b>[PvM Only]</b><br>[Poem of Bragi] Aftercast Rate + 1% for each equipped Clown Card.",0]
+,[629,6,"Gypsy Trentini","Fast Movement all the time.<br>All Song and Dance buffs you recieve have an additional 40 second lasting duration.<br><b>[On Unequip]</b><br>Dispel Song/Dance Buffs.",15,20,16,10,0]
+,[630,100,"Trentini + Alphoccio", "[Bard] [A Whistle] Flee Rate + 10%.<br>[Dancer] [Service for You] SP Rate + 5%.",0]
 ];
 /*
 ID, Location, description, 0 - seperator, stat, value added/subtracted
@@ -1260,6 +1293,36 @@ cardID = [
 ,[598,2,0]
 ,[599,1,4477]
 ,[600,2,0]
+,[601,1,4605]
+,[602,1,4606]
+,[603,1,4603]
+,[604,1,4601]
+,[605,1,4593]
+,[606,1,4594]
+,[607,1,4595]
+,[608,2,0]
+,[609,1,4596]
+,[610,1,4607]
+,[611,1,4599]
+,[612,1,4598]
+,[613,1,4600]
+,[614,1,4597]
+,[615,1,4572]
+,[616,1,4570]
+,[617,1,4568]
+,[618,1,4569]
+,[619,1,4571]
+,[620,1,4567]
+,[621,1,4573]
+,[622,1,4565]
+,[623,1,4563]
+,[624,1,4561]
+,[625,1,4562]
+,[626,1,4564]
+,[627,1,4560]
+,[628,2,0]
+,[629,1,4566]
+,[630,2,0]
 ];
 
 CardNum = cardOBJ.length -1;
@@ -1472,7 +1535,10 @@ w_SC = [[429,235,306,"NULL"],
 [589,587,468,"NULL"],
 [596,595,190,"NULL"],
 [598,597,184,"NULL"],
-[600,599,225,"NULL"]
+[600,599,225,"NULL"],
+[608,607,591,"NULL"],
+[628,620,627,"NULL"],
+[630,621,620,"NULL"],
 ];
 SC_MAXnum = w_SC.length;
 

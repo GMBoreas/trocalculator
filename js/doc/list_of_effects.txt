@@ -28,9 +28,8 @@ Effect list:
 	20: When [value] == 7, Shadow Element Weapon
 	20: When [value] == 8, Ghost Element Weapon
 	20: When [value] == 9, Undead Element Weapon
-	21: (unused)
-	22: When [value] >= 1, Bypass Enemy defence [Not on bosstype]
-	22: When [value] >= 10, Bypass Enemy defence [Also works on bosstype]
+	21: Ignore [Normal] class monsters defense by [value]%
+	22: Ignore [Boss] class monsters defense by [value]%
 	23: Enemy's DEF and VIT increases damage (//custom TalonRO fix ignore effects on left/offhand like Ice Pick or Weeder Knife)
 	24: Reduces your defence by 1/[value]
 	25: Increases ranged damage by [value]%
@@ -100,7 +99,8 @@ Effect list:
 	69: [Undead] element resistance + [value]%
 	70: Critical Damage +[value]%
 	71: Reflect Melee Physical Attacks by [value]%
-	72: (unused)
+	72: If [value] > 0, SP Cost + [value]%
+	72: If [value] < 0, SP Cost - [value]%
 	73: If [value] > 0, Cast Time + [value]%
 	73: If [value] < 0, Cast Time - [value]%
 	74: If [value] > 0, Cast Delay -[value]%
@@ -118,7 +118,7 @@ Effect list:
 	85: Lowers your defence rate by [value]%
 	86: Increases your chance to hit all targets by a fixed [value]%
 	87: ATK + [value]%
-	88: MATK + [value]% (Staff Type)
+	88: Increases short range damage by [value]%
 	89: MATK + [value]%
 	90: Looks like it messes up with card set effect. [value] references the w_SC array index.
 	    However, it's not directly set as a item effect.
@@ -140,7 +140,9 @@ Effect list:
 	97: Increases magical damage against bosstype monsters by [value]%
 	98: MATK + [value] (flat)
 	99: ASPD + [value] (flat)
-	100-109: (unused)
+	100: Resistance against melee attacks + [value]%
+	101: Resistance against magic attacks + [value]%
+	102-109: (unused)
 	110: Increases the critical rate on [Formless] race monsters by + [value]
 	111: Increases the critical rate on [Undead] race monsters by + [value]
 	112: Increases the critical rate on [Brute] race monsters by + [value]
@@ -197,16 +199,16 @@ Effect list:
 	177: Increases magical damage against [Demi-Human] race monsters by [value]%
 	178: Increases magical damage against [Angel] race monsters by [value]%
 	179: Increases magical damage against [Dragon] race monsters by [value]%
-	180: Completely ignore defense of [Formless] race monsters
-	181: Completely ignore defense of [Undead] race monsters
-	182: Completely ignore defense of [Brute] race monsters
-	183: Completely ignore defense of [Plant] race monsters
-	184: Completely ignore defense of [Insect] race monsters
-	185: Completely ignore defense of [Fish] race monsters
-	186: Completely ignore defense of [Demon] race monsters
-	187: Completely ignore defense of [Demi-Human] race monsters
-	188: Completely ignore defense of [Angel] race monsters
-	189: Completely ignore defense of [Dragon] race monsters
+	180: Ignore [Formless] race monsters defense by [value]%
+	181: Ignore [Undead] race monsters defense by [value]%
+	182: Ignore [Brute] race monsters defense by [value]%
+	183: Ignore [Plant] race monsters defense by [value]%
+	184: Ignore [Insect] race monsters defense by [value]%
+	185: Ignore [Fish] race monsters defense by [value]%
+	186: Ignore [Demon] race monsters defense by [value]%
+	187: Ignore [Demi-Human] race monsters defense by [value]%
+	188: Ignore [Angel] race monsters defense by [value]%
+	189: Ignore [Dragon] race monsters defense by [value]%
 	190: When [value] > 0, Decrease damage from [Small] size monsters by [value]%
 	190: When [value] < 0, Increase damage from [Small] size monsters by [value]%
 	191: When [value] > 0, Decrease damage from [Medium] size monsters by [value]%
@@ -228,12 +230,13 @@ Effect list:
 	198: When [value] == 7, Armor becomes Shadow element
 	198: When [value] == 8, Armor becomes Ghost element
 	198: When [value] == 9, Armor becomes Undead element
-	199-211: (unused)
-	212: AGI + [value] What's the difference with 3?
-	213: VIT + [value] What's the difference with 4?
-	214: INT + [value] What's the difference with 5?
-	215: DEX + [value] What's the difference with 6?
-	216-219: (unused)
+	199: Received heal effectiveness from [Potion Pitcher] increased by + [value]%
+	200: Received heal effectiveness from [Slim Potion Pitcher] increased by + [value]%
+	201-217: (unused)
+	218: Increases HP recovered by n% for healing items
+	218: Increases HP recovered by n% for healing item id ([id, n, g = 1 for group bonus])
+	219: Increases SP recovered by n% for healing items
+	219: Increases SP recovered by n% for healing item id ([id, n, g = 1 for group bonus])
 	220: Allows usage of the skill InsertSkill[value] (see below)
 	220: When [value] == 0, Allows usage of the skill [Basic Attack]Lv 0
 	220: When [value] == 1, Allows usage of the skill [Cold Bolt]Lv 3
@@ -296,6 +299,7 @@ Effect list:
 	220: When [value] == 58, Allows usage of the skill [Spell Breaker]Lv 1
 	220: When [value] == 59, Allows usage of the skill [Aqua Benedicta]Lv 1
 	220: When [value] == 60, Allows usage of the skill [Fire Wall]Lv 4
+	220: When [value] == 61, Allows usage of the skill [HP Recovery While Moving]Lv 1
 	221: When X, there's a Y chance to cast the skill Z (defined in AutoSpellSkill, see below)
 	     AutoSpellSkill array looks like this:
 	     [
@@ -451,27 +455,21 @@ Effect list:
 	221: When [value] == 141, When performing a ATK based attack, there's a 5% chance to cast the skill [Dragon Fire Formation learned] Lv2
 	221: When [value] == 142, When performing a ATK based attack, there's a 2% chance to cast the skill [Water Ball] Lv2
 	221: When [value] == 143, When performing a ATK based attack, there's a 0.2 * staff refine level)% chance to cast the skill [Sightrasher] Lv2
-	222-289: (unused)
-	290: On (all?) monsters, ignore [value]% DEF
-	291: On Normal monsters, ignore [value]% DEF
-	292: On Bosstype monsters, ignore [value]% DEF
-	293: (unused)
-	294: (unused)
+	222-294: (unused)
 	295: On (all?) monsters, ignore [value]% MDEF
 	296: On Normal monsters, ignore [value]% MDEF
 	297: On Bosstype monsters, ignore [value]% MDEF
-	298: (unused)
-	299: (unused)
-	300: On Formless race monsters, ignore [value]% DEF
-	301: On Undead race monsters, ignore [value]% DEF
-	302: On Brute race monsters, ignore [value]% DEF
-	303: On Plant race monsters, ignore [value]% DEF
-	304: On Insect race monsters, ignore [value]% DEF
-	305: On Fish race monsters, ignore [value]% DEF
-	306: On Demon race monsters, ignore [value]% DEF
-	307: On Demi-Human race monsters, ignore [value]% DEF
-	308: On Angel race monsters, ignore [value]% DEF
-	309: On Dragon race monsters, ignore [value]% DEF
+	298-309: (unused)
+	300: Increases short range damage on [Neutral] monsters by [value]%
+	301: Increases short range damage on [Water] monsters by [value]%
+	302: Increases short range damage on [Earth] monsters by [value]%
+	303: Increases short range damage on [Fire] monsters by [value]%
+	304: Increases short range damage on [Wind] monsters by [value]%
+	305: Increases short range damage on [Poison] monsters by [value]%
+	306: Increases short range damage on [Holy] monsters by [value]%
+	307: Increases short range damage on [Shadow] monsters by [value]%
+	308: Increases short range damage on [Ghost] monsters by [value]%
+	309: Increases short range damage on [Undead] monsters by [value]%
 	310: On Formless race monsters, ignore [value]% MDEF
 	311: On Undead race monsters, ignore [value]% MDEF
 	312: On Brute race monsters, ignore [value]% MDEF
@@ -542,9 +540,15 @@ Effect list:
 	377: Experience gained from [Shadow] elements monsters + [value]%
 	378: Experience gained from [Ghost] elements monsters + [value]%
 	379: Experience gained from [Undead] elements monsters + [value]%
-	380-999: (unused)
-	1000-1999: + [value]% Physical damage inflicted against a specic monster (MonsterOBJ[ID - 1000])
+	380: Chance of drain HP.
+	381: Amount of drain HP.
+	382: Chance of drain SP.
+	383: Amount of drain SP.
+	384-999: (unused)
+	1000-1999: + [value]% Physical damage inflicted against a specific monster (MonsterOBJ[ID - 1000])
 	2000-4999: (unused)
 	5000-6999: specific skill damage + [value]% (SkillOBJ[ID - 5000])
-	7000-8999: When [value] > 0, specific skill Cast Time -[value]% (SkillOBJ[ID - 7000])
-	7000-8999: When [value] < 0, specific skill Cast Time +[value]% (SkillOBJ[ID - 7000])
+	7000-7999: When [value] > 0, specific skill Cast Time -[value]% (SkillOBJ[ID - 7000])
+	7000-7999: When [value] < 0, specific skill Cast Time +[value]% (SkillOBJ[ID - 7000])
+	8000-8999: When [value] > 0, specific skill Cast Delay -[value]% (SkillOBJ[ID - 8000])
+	8000-8999: When [value] < 0, specific skill Cast Delay +[value]% (SkillOBJ[ID - 8000])

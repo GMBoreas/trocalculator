@@ -1,3 +1,110 @@
+[2021-03-11]
+- Reworked Marionette Control
+
+[2021-03-09]
+- Fixed invalid bonus due to revamp not reset
+- Updated refine system based on @Isilla666 pull request
+
+[2021-03-06]
+- Changed Eden energy crystal from dropdown to multiple checkbox
+- Added missing eggs from recent events
+- Added refine minigame initial version
+- Fixed bragi cast time reduction wrongly stacking
+- Fixed ASPD bonus for Poison Bottle on Assassin Cross
+
+[2021-03-04]
+- Fixed wrong bonus index used for bragi
+- Fixed player resistance computation
+- Fixed katar critical bonus not considering base critical
+- Fixed MDEF armor enchant applying twice
+- Added magic and region reduction for EQ dmg
+- Added refine system calculator in Extended Info
+- Added Eden crystal buff under Additional Effects
+
+[2021-02-28]
+- Fixed steal drops list order
+- Updated SQI monsters boss flag
+- Added Thanksgiving Pilgrim Hat
+
+[2021-02-26]
+- Fixed SA_ELEMENTALCHANGE to fit in game behaviour, random level upon cast
+- Fixed SC_BLIND not reducing monster HIT properly
+
+[2021-02-24]
+- Fixed Violet Fear and Naght swords defense penetration effect
+- Added Monkey King's Helm introduced with CNY event
+
+[2021-02-22]
+- Fixed BoA base attack
+- Removed temporary effect uniqueness restriction
+- Fixed Baby Skoll, Ballooling, Lucky Case, Lora pets not properly calced
+
+[2021-02-18]
+- Replaced remaining old Djinn bonus with new one
+- Added toggle on Djinn Demonstration aspd bonus
+
+[2021-02-17]
+- Fixed Twin Fang base stats and Deadly Poison bonus
+- Fixed Artemis traps bonus not applying
+
+[2021-02-16]
+- Added new section to control monster stats
+
+[2021-02-10]
+- Added Skull Cap
+- Added SQI Intances' monsters
+- Fixed max SP under Blessing and Gospel
+- Fixed Asura Strike damage computation including lex and soft cap
+
+[2021-02-03]
+- Updated SQI
+
+[2021-01-24]
+- Added Thanatos Despero Mask
+- Fixed critical rate with Katar
+- Reworked Potion Pitcher Calculator
+- Fixed Shield Chain and Shield Boomerang damage computation
+
+[2020-12-21]
+- Added Sppo Egg
+- Added Rose Casquette
+- Added Normal Pope Egg
+- Added Sword Master Crown
+- Added Campus Festival Hat
+- Added Luxurious Wedding Veil
+- Added Steal Calculator
+- Added Drain Rate Calculator
+- Added SP Cost Modifier Info
+- Added Healing Item Calculator
+
+[2020-10-26]
+- Added Greater Agimat food
+- Fixed Giant Shield refine bonus
+
+[2020-10-24]
+- Added Preschool Hat
+- Added new Summer Event items
+- Added Insectivorous Plant Hairpin
+- Fixed Final Strike damage computation
+- Fixed Book of Charms class restriction
+
+[2020-10-03]
+- Added Antonio's set
+- Fixed Palace Guard refine bonus
+- Added HJ and EQ skills to Lost Dragon
+- Fixed Tarou + Clamp cards combo applying twice
+- Added magical attack modifiers to Extended Info - Attack Modifiers
+
+[2020-10-01]
+- Added Bankruptcy set
+- Added Lost Dragon MvP
+- Added Summer Cocktails
+- Fixed Savage pet bonus
+- Fixed Scuba Mask script
+- Fixed weapon and base attack bonus based
+- Fixed Apple of Idun & Berserk MaxHP formula
+- Fixed Assassin Cross of Sunset song ASDP formula
+
 [2020-07-20]
 - Fixed Bragi formula
 - Fixed MDEF armor enchantment

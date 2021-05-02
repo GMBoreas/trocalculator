@@ -10,10 +10,10 @@
 		Taijin=0;
 		// -->
 	</script>
-	<script type="text/javascript" src="js/head.js?v=4"></script>
-	<script type="text/javascript" src="js/item.js?v=4"></script>
-	<script type="text/javascript" src="js/etc.js?v=4"></script>
-	<script type="text/javascript" src="js/skill.js?v=4"></script>
+	<script type="text/javascript" src="js/head.js?v=7"></script>
+	<script type="text/javascript" src="js/item.js?v=7"></script>
+	<script type="text/javascript" src="js/etc.js?v=7"></script>
+	<script type="text/javascript" src="js/skill.js?v=7"></script>
 	<script type="text/javascript" src="js/libs/base64.js"></script>
 	<script type="text/javascript" src="js/libs/rawinflate.js"></script>
 	<script type="text/javascript" src="js/libs/rawdeflate.js"></script>
@@ -35,26 +35,7 @@
 <div class="topic">
 	<h3>CHANGELOG</h3>
 	<div class="pad">
-		<span><b>2020-07-20</b></span>
-		<div id="changelog20200704">
-			<ul>
-				<li>Fixed Health Point computation</li>
-				<li>Fixed MDEF armor enchantment</li>
-				<li>Fixed The Ring of Nibelugen and Bragi formula</li>
-				<li>Added Ancient Tower and Elysian Garden monsters</li>
-				<li>Added Beach Towel, Cookie Hat and Black Tailed Ribbon</li>
-				<li>Fixed Triple Attack and Spiral Pierce damage computation</li>
-			</ul>
-		</div>
-		<br/>
-		<span><b>2020-06-21</b></span>
-		<div id="changelog20200621">
-			<ul>
-				<li>Fixed AR/FAR ASPD party buff</li>
-				<li>Fixed ASPD value for Katar on Assassin</li>
-				<li>Shield Chain now take into consideration class defense bypass</li>
-			</ul>
-		</div>
+		<span><a href="https://github.com/GMBoreas/trocalculator/releases/tag/2.1.5">April 2021 Update : <b>Release 2.1.5</b></a></span>
 	</div>
 </div>
 
@@ -127,7 +108,7 @@
 						<td class="subheader" bgcolor="#DDDDFF">
 							<div style="float: left; padding: 3px;"><span id="nm013">Extended Info</span></div>
 								<div style="float: right; padding-right: 3px;">
-									<select name="A_Kakutyou" onchange="KakutyouKansuu2() | StAllCalc()"></select>
+									<select name="A_Kakutyou" onchange="KakutyouKansuu2() | calc()"></select>
 								</div>
 								<div style="clear: both;"></div>
 							</td>
@@ -929,7 +910,7 @@
 												<tr>
 													<td colspan="4" class="subheader" bgcolor="#DDDDFF">
 														<span id="nm037">Monster: </span>
-														<select name="B_Enemy" onchange="calc()"></select>
+														<select name="B_Enemy" onchange="reset_monster_stats()|KakutyouKansuu2()|calc()"></select>
 													</td>
 												</tr>
 												<tr>
@@ -938,14 +919,14 @@
 														<a href="https://panel.talonro.com/mobdb/1219/" target="_blank"><b>MobDB</b></a>
 													</td>
 													<td colspan="2">
-														<select name="ENEMY_SORT" onchange="EnemySort()|calc()">
+														<select name="ENEMY_SORT" onchange="sort_monsters_db()|calc()">
 															<option selected="selected" value="0">Alphabetical</option>
-															<option value="1">By attribute</option>
+															<option value="3">By attribute</option>
 															<option value="2">By race</option>
-															<option value="3">By 100%Hit</option>
-															<option value="4">By 95%Flee</option>
-															<option value="5">By BaseExp</option>
-															<option value="6">By JobExp</option>
+															<option value="8">By 100%Hit</option>
+															<option value="10">By 95%Flee</option>
+															<option value="16">By BaseExp</option>
+															<option value="17">By JobExp</option>
 															<option value="7">By MaxATK</option>
 														</select>
 													</td>
@@ -987,7 +968,7 @@
 												<tr>
 													<td class="subheader" bgcolor="#DDDDFF">By Place</td>
 													<td colspan="3" class="subheader" bgcolor="#DDDDFF">
-														<select name="ENEMY_SORT2" onchange="EnemySort()|calc()"></select>
+														<select name="ENEMY_SORT2" onchange="sort_monsters_db()|calc()"></select>
 													</td>
 												</tr>
 											</tbody>
@@ -1017,6 +998,8 @@
 								<tr><td id="nm060">Average Number of Hits</td><td id="AveATKnum">Over 10000 Hits</td></tr>
 								<tr><td id="nm061">Maximum Number of Hits</td><td id="MaxATKnum"><font size="2">Infinite (no 100% Hit)</font></td></tr>
 								<tr><td id="nm062">Average Battle Duration</td><td id="BattleTime">Too High to Calculate</td></tr>
+								<tr><td id="average_sp_cost">Average SP Cost</td><td id="average_sp_cost_value">0</td></tr>
+								<tr><td id="average_zeny_cost"></td><td id="average_zeny_cost_value"></td></tr>
 								<tr><td id="nm063">Base Exp Per Hit</td><td id="AtkBaseExp">Immesurable</td></tr>
 								<tr><td id="nm064">Job Exp Per Hit</td><td id="AtkJobExp">Immesurable</td></tr>
 								<tr><td id="nm065">Average Damage Recieved</td><td id="B_AveAtk">1875 (1600~2150)</td></tr>
@@ -1062,6 +1045,19 @@
 											<tr>
 												<td colspan="6" class="subheader" bgcolor="#DDDDFF">
 													<div style="float: left; padding: 3px;">Monster Skills</div><input id="lab7" name="B_ENSKSW" onclick="Click_EnemySkillsSW()" type="checkbox">	<label for="lab7"><span id="nm090">Show</span></label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td id="monster_stats"><!--Monster Stats-->
+									<table style="border: 1px solid rgb(153, 153, 153); border-collapse: collapse; width: auto;" align="left">
+										<tbody>
+											<tr>
+												<td colspan="6" class="subheader" bgcolor="#DDDDFF">
+													<div style="float: left; padding: 3px;">Monster Stats</div><input id="monster_stats_check" name="monster_stats_check" onclick="display_monster_stats()" type="checkbox">	<label for="monster_stats_check"><span id="monster_stats_check_label">Show</span></label>
 												</td>
 											</tr>
 										</tbody>
@@ -1210,16 +1206,16 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="topic" align="right" style="margin-left: 6.5px"><div style="margin-right: 5px;line-height: 165%;">
+		<div class="footer" align="right" style="margin-left: 6.5px"><div style="margin-right: 5px;line-height: 165%;">
 			Original simulator created by <a href="http://roratorio.2-d.jp/ro/">ROratorio</a><br />
 			Translated and adapted by <a href="http://rode.doddlercon.com/">Doddler</a><br />
 			Adjusted to TalonRO by [FlynnQ, Kato, ZoneSoldier, NattWara, Loa, Hatfun and Kutsuru]
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="js/monster.js?v=4"></script>
-<script type="text/javascript" src="js/card.js?v=4"></script>
-<script type="text/javascript" src="js/foot.js?v=4"></script>
+<script type="text/javascript" src="js/monster.js?v=7"></script>
+<script type="text/javascript" src="js/card.js?v=7"></script>
+<script type="text/javascript" src="js/foot.js?v=7"></script>
 </form>
 		<script type="text/javascript">
 			function Toogle(x,t){
