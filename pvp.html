@@ -11,10 +11,10 @@
 Lang = 0;
 Taijin=1;
 // --></script>
-<script type="text/javascript" src="js/head.js?v=4"></script>
-<script type="text/javascript" src="js/item.js?v=4"></script>
-<script type="text/javascript" src="js/etc.js?v=4"></script>
-<script type="text/javascript" src="js/skill.js?v=4"></script>
+<script type="text/javascript" src="js/head.js?v=9"></script>
+<script type="text/javascript" src="js/item.js?v=9"></script>
+<script type="text/javascript" src="js/etc.js?v=9"></script>
+<script type="text/javascript" src="js/skill.js?v=9"></script>
 <script type="text/javascript" src="js/libs/base64.js"></script>
 <script type="text/javascript" src="js/libs/rawinflate.js"></script>
 <script type="text/javascript" src="js/libs/rawdeflate.js"></script>
@@ -1125,21 +1125,8 @@ I would like all of you to test this calc and compare it to the actual PVP damag
 						</div>
 						<br>
 						<hr>
-						<font size="2"><span id="nm077">Minimum Delay Between Active Skills:</span></font>&nbsp;&nbsp;
-						<select name="Conf01">
-						<option value="10">0.1s (10 per second)</option>
-						<option value="15">0.15s</option>
-						<option value="20">0.2s (5 per second)</option>
-						<option value="25">0.25s (4 per second)</option>
-						<option value="30">0.3s</option>
-						<option selected="selected" value="33">0.33s (3 per second) [TalonRO's Default]</option>
-						<option value="40">0.4s</option>
-						<option value="50">0.5s (2 per second)</option>
-						</select>
-						<input value="Set" onclick="SaveCookieConf()" type="button"> <span id="set" style="visibility:hidden"></span><br>
-
-						<!--<font color="#AAAAFF" size="1">(1.4ver)</font>-->
-						<span id="PR1"></span>
+						<font size="2"><span id="nm077">Minimum Delay Between Active Skills:</span></font>
+						<input type='text' onChange='calc()' name='minimum_skill_delay' value='0.23'>s</td>
 					</div>
 				</div>
 			</td>
@@ -1157,8 +1144,8 @@ Adjusted to TalonRO by FlynnQ
 </div></div>
 </div>
 <script type="text/javascript" src="js/monster1.js"></script>
-<script type="text/javascript" src="js/card.js?v=4"></script>
-<script type="text/javascript" src="js/foot.js?v=4"></script>
+<script type="text/javascript" src="js/card.js?v=9"></script>
+<script type="text/javascript" src="js/foot.js?v=9"></script>
 </form>
 		<script type="text/javascript">
 		</script>

@@ -10,10 +10,10 @@
 		Taijin=0;
 		// -->
 	</script>
-	<script type="text/javascript" src="js/head.js?v=7"></script>
-	<script type="text/javascript" src="js/item.js?v=7"></script>
-	<script type="text/javascript" src="js/etc.js?v=7"></script>
-	<script type="text/javascript" src="js/skill.js?v=7"></script>
+	<script type="text/javascript" src="js/head.js?v=9"></script>
+	<script type="text/javascript" src="js/item.js?v=9"></script>
+	<script type="text/javascript" src="js/etc.js?v=9"></script>
+	<script type="text/javascript" src="js/skill.js?v=9"></script>
 	<script type="text/javascript" src="js/libs/base64.js"></script>
 	<script type="text/javascript" src="js/libs/rawinflate.js"></script>
 	<script type="text/javascript" src="js/libs/rawdeflate.js"></script>
@@ -35,7 +35,7 @@
 <div class="topic">
 	<h3>CHANGELOG</h3>
 	<div class="pad">
-		<span><a href="https://github.com/GMBoreas/trocalculator/releases/tag/2.1.5">April 2021 Update : <b>Release 2.1.5</b></a></span>
+		<span><a href="https://github.com/GMBoreas/trocalculator/releases/tag/2.1.7">June 2021 Update : <b>Release 2.1.7</b></a></span>
 	</div>
 </div>
 
@@ -892,7 +892,7 @@
 								<tr>
 									<td>
 										<!-- Monster picture -->
-										<table style="border: 1px solid rgb(153, 153, 153); border-collapse: collapse; width: 300px;">
+										<table style="border: 1px solid rgb(153, 153, 153); border-collapse: collapse; width: 100%;">
 											<tbody>
 												<tr>
 													<td align="center" valign="middle" height="150" id="B_Enemy_picture" >
@@ -905,21 +905,23 @@
 								</tr>
 								<tr>
 									<td>
-										<table style="border: 1px solid rgb(153, 153, 153); border-collapse: collapse; width: 300px;">
+										<table style="border: 1px solid rgb(153, 153, 153); border-collapse: collapse; width: auto;">
 											<tbody>
 												<tr>
-													<td colspan="4" class="subheader" bgcolor="#DDDDFF">
-														<span id="nm037">Monster: </span>
+													<td class="subheader" bgcolor="#DDDDFF">
+														<span id="nm037" style="width: 20px;">Monster </span>
+													</td>
+													<td colspan="3" class="subheader" bgcolor="#DDDDFF">	
 														<select name="B_Enemy" onchange="reset_monster_stats()|KakutyouKansuu2()|calc()"></select>
+														<a id="B_Enemy_mobdb" href="https://panel.talonro.com/mobdb/1219/" target="_blank" style="color:white;"><b>MobDB</b></a>
 													</td>
 												</tr>
-												<tr>
-													<td>More info</td>
-													<td id="B_Enemy_mobdb">
-														<a href="https://panel.talonro.com/mobdb/1219/" target="_blank"><b>MobDB</b></a>
+												<tr style="border: 1px solid rgb(153, 153, 153); border-collapse: collapse;">
+													<td>
+														<label for="ENEMY_SORT" style="width: 20px;">Sort by</label>
 													</td>
-													<td colspan="2">
-														<select name="ENEMY_SORT" onchange="sort_monsters_db()|calc()">
+													<td>
+														<select id="ENEMY_SORT" name="ENEMY_SORT" onchange="sort_monsters_db()|calc()" style="width: 100%;">
 															<option selected="selected" value="0">Alphabetical</option>
 															<option value="3">By attribute</option>
 															<option value="2">By race</option>
@@ -929,6 +931,13 @@
 															<option value="17">By JobExp</option>
 															<option value="7">By MaxATK</option>
 														</select>
+													<td>
+														<input id="non_boss_filter" name="non_boss_filter" type="checkbox" onclick="manage_boss_property_sort(0)|sort_monsters_db()|calc()" checked>
+														<label for="non_boss_filter"><span id="non_boss_filter">Non-Boss</span></label>
+													</td>
+													<td>
+														<input id="boss_filter" name="boss_filter" type="checkbox" onclick="manage_boss_property_sort(1)|sort_monsters_db()|calc()" checked>
+														<label for="boss_filter"><span id="boss_filter">Boss</span></label>
 													</td>
 												</tr>
 												<tr>
@@ -966,10 +975,10 @@
 													<td id="B_26" colspan="2"></td>
 												</tr>
 												<tr>
-													<td class="subheader" bgcolor="#DDDDFF">By Place</td>
-													<td colspan="3" class="subheader" bgcolor="#DDDDFF">
-														<select name="ENEMY_SORT2" onchange="sort_monsters_db()|calc()"></select>
-													</td>
+														<td class="subheader" bgcolor="#DDDDFF">By region</td>
+														<td colspan="3" class="subheader" bgcolor="#DDDDFF">
+															<select name="ENEMY_SORT2" onchange="sort_monsters_db()|calc()"></select>
+														</td>
 												</tr>
 											</tbody>
 										</table>
@@ -1016,7 +1025,7 @@
 										<tbody>
 											<tr>
 												<td id="AKTD" colspan="2" class="subheader" bgcolor="#DDDDFF">
-													<div style="float: left; padding: 3px;">Monster Buffs <span id="AKused"></span></div>
+													<div style="float: left; padding: 3px; width: 100px;">Monster Buffs <span id="AKused"></span></div>
 													<div style="float: right; padding-right: 3px;"><input id="lab5" name="B_KYOUKASW" onclick="Click_EnemyKyoukaSW()" type="checkbox"><label for="lab5"><span id="nm084">Show</span></label></div>
 													<div style="clear: both;"></div>
 												</td>
@@ -1026,12 +1035,12 @@
 								</td>
 							</tr>
 							<tr>
-								<td id="MONSTER_IJYOU"><!--Monster Stats-->
+								<td id="MONSTER_IJYOU"><!--Monster Debuffs-->
 									<table style="border: 1px solid rgb(153, 153, 153); border-collapse: collapse; width: auto;" align="left">
 										<tbody>
 											<tr>
 												<td id="AITD" colspan="6" class="subheader" bgcolor="#DDDDFF">
-													<div style="float: left; padding: 3px;">Monster Debuffs <span id="AIused"></span></div><input id="lab6" name="B_IJYOUSW" onclick="Click_IjyouSW()" type="checkbox"><label for="lab6"><span id="nm051">Show</span></label>
+													<div style="float: left; padding: 3px; width: 100px;">Monster Debuffs <span id="AIused"></span></div><input id="lab6" name="B_IJYOUSW" onclick="Click_IjyouSW()" type="checkbox"><label for="lab6"><span id="nm051">Show</span></label>
 												</td>
 											</tr>
 										</tbody>
@@ -1044,7 +1053,7 @@
 										<tbody>
 											<tr>
 												<td colspan="6" class="subheader" bgcolor="#DDDDFF">
-													<div style="float: left; padding: 3px;">Monster Skills</div><input id="lab7" name="B_ENSKSW" onclick="Click_EnemySkillsSW()" type="checkbox">	<label for="lab7"><span id="nm090">Show</span></label>
+													<div style="float: left; padding: 3px; width: 100px;">Monster Skills</div><input id="lab7" name="B_ENSKSW" onclick="Click_EnemySkillsSW()" type="checkbox">	<label for="lab7"><span id="nm090">Show</span></label>
 												</td>
 											</tr>
 										</tbody>
@@ -1057,7 +1066,7 @@
 										<tbody>
 											<tr>
 												<td colspan="6" class="subheader" bgcolor="#DDDDFF">
-													<div style="float: left; padding: 3px;">Monster Stats</div><input id="monster_stats_check" name="monster_stats_check" onclick="display_monster_stats()" type="checkbox">	<label for="monster_stats_check"><span id="monster_stats_check_label">Show</span></label>
+													<div style="float: left; padding: 3px; width: 100px;">Monster Stats</div><input id="monster_stats_check" name="monster_stats_check" onclick="display_monster_stats()" type="checkbox">	<label for="monster_stats_check"><span id="monster_stats_check_label">Show</span></label>
 												</td>
 											</tr>
 										</tbody>
@@ -1197,8 +1206,8 @@
 											</tbody>
 										</table>
 									</div><br /><hr />
-									<font size="2"><span id="nm077"><b>Minimum Delay Between Active Skills:</b> 0.33s (3 per second) [TalonRO's Default]</span></font>
-									<span id="PR1"></span>
+									<font size="2"><span id="nm077">Minimum Delay Between Active Skills:</span></font>
+									<input type='text' onChange='calc()' name='minimum_skill_delay' value='0.23'>s</td>
 								</div>
 							</div>
 						</td>
@@ -1213,9 +1222,9 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="js/monster.js?v=7"></script>
-<script type="text/javascript" src="js/card.js?v=7"></script>
-<script type="text/javascript" src="js/foot.js?v=7"></script>
+<script type="text/javascript" src="js/monster.js?v=9"></script>
+<script type="text/javascript" src="js/card.js?v=9"></script>
+<script type="text/javascript" src="js/foot.js?v=9"></script>
 </form>
 		<script type="text/javascript">
 			function Toogle(x,t){

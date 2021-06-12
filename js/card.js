@@ -354,7 +354,7 @@ cardOBJ = [
 ,[332,2,"Bacsojin",0,57,-10,72,15,91,20,93,20,94,20,0] //custom TalonRO heal-stuff +20% instead of +30; +10% dmg from demi-human
 ,[333,4,"Sky Deleter","Regain 100 HP each time a monster is killed with a ATK based attack",75,-100,0]
 ,[334,4,"Earth Deleter","Regain 10 SP each time a monster is killed with a ATK based attack<BR>Drains 100 SP when the armor is unequipped",76,-100,0]
-,[335,7,"Greatest General","0.2% chance of casting level 5 Summon Spirit Sphere when doing a ATK based attack<BR>If equipped by an Acolyte job type: 2% chance instead",0]
+,[335,7,"Greatest General","0.2% chance of casting level 5 Summon Spirit Sphere when doing a ATK based attack<BR>2% chance instead if equipped by [Acolyte] or [Gunslinger]",0]
 ,[336,7,"Cloud Hermit","1% chance of [Box of Gloom] item dropping when killing a Plant race monster",0]
 ,[337,2,"Evil Nymph",0,4,1,14,50,0]
 ,[338,3,"Toad",0,57,35,0] //custom TalonRO -35% dmg from demi-human - diff position
@@ -626,14 +626,14 @@ cardOBJ = [
 ,[599,2,"Hell Apocalypse",0,15,5,13,200,0]
 ,[600,100,"Hell Apocalypse + Apocalypse","[If Apocalypse Card Equipped on Meteor Plate]<br/>Gain protection from the Freeze status.",15,5,152,50,0]
 // Old Glast Heim
-,[601,1,"1st Commander of Destruction",0,8,5,5073,25,0]
+,[601,1,"1st Commander of Destruction",0,8,5,5073,50,0]
 ,[602,1,"2nd Commander of Destruction", "<b>[If Two-Handed Spear Equipped]</b><br/> 50% more damage with [Holy Cross].",8,5,0]
 ,[603,4,"Corrupted Soul","Add a 10% chance to cause Curse or Stone Curse status when attacked physically.",18,5,19,5,0]
 ,[604,2,"Amdarais","[Cart Termination] damage inflicted on [Ghost] Element monsters by 25%.<br>[Cart Termination] damage inflicted on [Neutral] Element monsters by 10%.",300,10,308,25,0]
 // Eclage
 ,[605,1,"Menblatt",0,8,5,5394,25,5395,25,0]
 ,[606,5,"Petal","<b>[Every 10 Base LUK]</b> Critical Attack + 2%",0]
-,[607,1,"Cenere",0,70,10,5401,25,0]
+,[607,1,"Cenere","[Shadow Slash] Critical Damage +10%",70,10,5401,25,0]
 ,[608,100,"Cenere + Naga","[Mist Slash] HIT Rate + 50%.",5400,65,0]
 ,[609,5,"Antique Book","<b>[Every 10 Base AGI]</b> ASPD + 1%<br><b>[Every 2 Refine Levels]</b> AGI + 1",0]
 ,[610,2,"Faithful Manager","<b>[If Book Equipped]</b><br>ATK + 20<br>CRIT + 12<br><b>[Every Book Refine Level]</b><br>ASPD + 1%",0]

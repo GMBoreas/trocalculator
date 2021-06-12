@@ -1,4 +1,3 @@
-myInnerHtml("PR1","",0);
 myInnerHtml("DELHTML",' <Font size=2><A Href="del.html">[delete saved data]</A></Font>',0);
 //array of armor select elements
 armorLoc = [document.calcForm.A_head1, document.calcForm.A_head2, document.calcForm.A_head3, document.calcForm.A_body, document.calcForm.A_left, document.calcForm.A_shoulder, document.calcForm.A_shoes, document.calcForm.A_acces1, document.calcForm.A_acces2];
@@ -695,14 +694,20 @@ with(document.calcForm){
 	// Manage weapon attack bonus, those bonus are impacted by the Size multiplier
 	// A Drum on the Battlefield - Weapon ATK + 25 + 25 * SkillLV
 	if (n_A_PassSkill3[9]) {
-		n_A_Weapon_ATK += (25 + 25 * n_A_PassSkill3[9]);
-		n_A_Weapon2_ATK += (25 + 25 * n_A_PassSkill3[9]) * n_Nitou;
+		dmgReduction = 0;
+		// TalonRO Update 01.05.21 Bows + Guns -50%
+		dmgReduction += (n_A_WeaponType == 10 || n_A_WeaponType==17 || 18 == n_A_WeaponType || 19 == n_A_WeaponType || 20 == n_A_WeaponType || 21 == n_A_WeaponType) ? 50 : 0;
+		n_A_Weapon_ATK += (25 + 25 * n_A_PassSkill3[9]) * (100 - dmgReduction) / 100;
+		n_A_Weapon2_ATK += (25 + 25 * n_A_PassSkill3[9]) * n_Nitou * (100 - dmgReduction) / 100;
 	}
 	
 	// The Ring of Nibelugen - Weapon ATK + 50 + 25 * SkillLV
 	if (n_A_PassSkill3[10] && n_A_WeaponLV == 4) {
-		n_A_Weapon_ATK += 50 + 25 * n_A_PassSkill3[10];
-		n_A_Weapon2_ATK += (50 + 25 * n_A_PassSkill3[10]) * n_Nitou;
+		dmgReduction = 0;
+		// TalonRO Update 01.05.21 Bows + Guns -50%
+		dmgReduction += (n_A_WeaponType == 10 || n_A_WeaponType==17 || 18 == n_A_WeaponType || 19 == n_A_WeaponType || 20 == n_A_WeaponType || 21 == n_A_WeaponType) ? 50 : 0;
+		n_A_Weapon_ATK += (50 + 25 * n_A_PassSkill3[10]) * (100 - dmgReduction) / 100;
+		n_A_Weapon2_ATK += (50 + 25 * n_A_PassSkill3[10]) * n_Nitou * (100 - dmgReduction) / 100;
 	}
 	
 	// Volcano - ATK bonus on Fire Armor - Weapon ATK + 10 * SkillLV
@@ -987,6 +992,18 @@ with(document.calcForm){
 			if(n_A_JobSearch2() == 9) {
 				n_tok[89] += 15;
 			}
+	}
+
+	/* Malangdo Rentals
+	   Hairtail [Rental]#1808 - [Base Level  > 94] - ATK + 50
+	   Marlin 	[Rental]#1810 - [Base Level  > 94] - ATK + 30
+	   Saurel 	[Rental]#1811 - [Base Level  > 94] - ATK + 10, MATK + 5%
+	   Tuna 	[Rental]#1812 - [Base Level  > 94] - ATK + 20
+	*/
+	if (n_A_BaseLV > 94)
+	{
+		n_tok[17] += 50 * EquipNumSearch(1808) + 30 * EquipNumSearch(1810) + 10 * EquipNumSearch(1811) + 20 * EquipNumSearch(1812);
+		n_tok[89] += 5 * EquipNumSearch(1811);
 	}
 
 	/*
@@ -1979,6 +1996,9 @@ with(document.calcForm){
 
 	// Spoon#1738 [Every Refine Level] - HIT + 3
 	n_tok[8] += n_A_Weapon_ATKplus * 3 * EquipNumSearch(1738);
+	
+	// Death Fire#1791 [Every Refine Level] - HIT + 4
+	n_tok[8] += n_A_Weapon_ATKplus * 4 * EquipNumSearch(1791);
 
 	n_A_HIT += n_tok[8];
 
@@ -2204,6 +2224,11 @@ with(document.calcForm){
 	if(n_A_JobSearch()==2 && CardNumSearch(524)){
 		n_A_FLEE += 4*CardNumSearch(524);
 	}
+	
+	// Tenebris Latitantes#1776 - FLEE + 1 for every Base AGI while under the effect of [Illusionary Shadow#444]
+	if (SkillSearch(444) && EquipNumSearch(1776))
+		n_A_FLEE += SU_AGI;
+	
 	//flee reduction when mobbed updated [Loa] 2018-08-11
 	let fleeReduc = n_A_PassSkill8[12] + n_A_PassSkill8[33] + n_A_PassSkill8[34]
 	if(fleeReduc > 2){
@@ -2654,43 +2679,9 @@ with(document.calcForm){
 			n_tok[73] -= 10;
 		}
 	}
-	//[TalonRO Custom - 2018-07-26 - Valorous Battle Strategy Book - Sage/Professor, Decrease [Fire Bolt], [Cold Bolt], and [Lightning Bolt] cast times by 15%.] [Amor]
-	if(EquipNumSearch(912) && (n_A_JobSearch2() == 18) && (n_A_ActiveSkill == 56 || n_A_ActiveSkill == 51 || n_A_ActiveSkill == 54 )){
-		n_tok[73] -= 15;
-	}
-	//[TalonRO Custom - 2018-07-27 - Glorious Apocalipse- Sage/Professor, Decrease [Fire Bolt], [Cold Bolt], and [Lightning Bolt] cast times by 20% plus 1% for every 2 refines.] [Amor]
-	if(EquipNumSearch(1095) && (n_A_JobSearch2() == 18) && (n_A_ActiveSkill == 56 || n_A_ActiveSkill == 51 || n_A_ActiveSkill == 54 )){
-		n_tok[73] -= 20 + Math.floor(n_A_Weapon_ATKplus / 2);
-	}
 	//[TalonRO Custom - 2018-07-27 - Glorious Apocalipse/Glorious Arc Wand  - Every Refine Level gives -1% Casting Time] [Amor]
 	if(EquipNumSearch(1095) || EquipNumSearch(1084)){
 		n_tok[73] -= n_A_Weapon_ATKplus;
-	}
-	//[TalonRO Custom - 2018-07-27 - Glorious Claymore - Gives -3% [Charge Attack] Casting Time] [Amor]
-	if(EquipNumSearch(1080) && n_A_ActiveSkill == 308){
-		n_tok[73] -= 3 * n_A_Weapon_ATKplus;
-	}
-	//[TalonRO Custom - 2018-07-27 - Glorious Claymore - Refine +6 > Gives -10% [Bowling Bash] Casting Time] [Amor]
-	if(EquipNumSearch(1080) && n_A_ActiveSkill == 76){
-		if(n_A_Weapon_ATKplus >= 6) {
-				n_tok[73] -= 10 * (n_A_Weapon_ATKplus - 5);
-		}
-	}
-	//[TalonRO Custom - 2018-07-28 - Glorious Fists - Gives -5% less casting time for [Asura Stike] per refine] [Amor]
-	if(EquipNumSearch(1097) && n_A_ActiveSkill == 197){
-				n_tok[73] -= 5 * (n_A_Weapon_ATKplus);
-	}
-	//[TalonRO Custom - 2018-07-28 - Glorious Holy Avenger - -5% [Grand Cross] cast time used with Aegis] [Amor]
-	if(EquipNumSearch(1079) && EquipNumSearch(1376) && n_A_ActiveSkill == 162) {
-			n_tok[73] -= 5;
-	}
-	//[TalonRO Custom - 2018-07-28 - Glorious Holy Avenger - [Grand Cross] -1% cast time per refine] [Amor]
-	if(EquipNumSearch(1079) && n_A_ActiveSkill == 162) {
-			n_tok[73] -= n_A_Weapon_ATKplus;
-	}
-	//[TalonRO Custom - 2018-07-29 - Glorious Rifle - [Tracking] -1% cast time per refine] [Amor]
-	if(EquipNumSearch(1100) && n_A_ActiveSkill == 430) {
-			n_tok[73] -= n_A_Weapon_ATKplus;
 	}
 	//[TalonRO Custom - 2018-07-29 - Glorious Staff of Destruction - Every Refine Level gives -2% Casting Time] [Amor]
 	if(EquipNumSearch(1083)){
@@ -3094,9 +3085,9 @@ with(document.calcForm){
 	if (SkillSearch(258))
 		n_tok[12] += 30;
 
-	// Madness Canceller#420
+	// Madness Canceller#420 - + 20% ASPD
 	if (SkillSearch(420))
-		n_tok[12] += 30;
+		n_tok[12] += 20;
 
 	// Gatling Fever#433
 	if (n_A_WeaponType == 20 && SkillSearch(433))
@@ -3231,6 +3222,9 @@ with(document.calcForm){
 	if (SkillSearch(165))
 		n_tok[12] -= 25 - SkillSearch(165) * 5;
 	
+	if ((EquipNumSearch(1774) && EquipNumSearch(1777)) || (EquipNumSearch(1775) && EquipNumSearch(1778)) || (EquipNumSearch(1776) && EquipNumSearch(1779)))
+		n_tok[12] += n_A_BODY_DEF_PLUS;
+	
 	// Spammers Heaven Cocktail - ASPD +10%
 	if (spammers_heaven_cocktail)
 		n_tok[12] += 10;
@@ -3306,7 +3300,11 @@ with(document.calcForm){
 	if (n_A_PassSkill3[2]) // Poem of Bragi, 3 * Skill LV + Musical Lesson LV + DEX / 10;
 		bragi_cast_reduction -= Math.min(1, (n_A_PassSkill3[2] * 3 + n_A_PassSkill3[32] + Math.floor(n_A_PassSkill3[22] / 10)) / 100);
 
-	n_A_CAST *= (1 + n_tok[73] / 100) * bragi_cast_reduction;
+	// DEX and Bragi do not reduce Tracking#430 cast time
+	if (430 == n_A_ActiveSkill)
+		n_A_CAST = 1 + n_tok[73] / 100;
+	else
+		n_A_CAST *= (1 + n_tok[73] / 100) * bragi_cast_reduction;
 
 	// Skill cast time reduction script bonus
 	skill_cast_reduction = 100;
@@ -3338,6 +3336,44 @@ with(document.calcForm){
 	*/
 	if (n_A_Weapon_ATKplus >= 7 && n_A_ActiveSkill == 264 && EquipNumSearch(909))
 		skill_cast_reduction -= 15;
+	
+	// RAG203#1787 - [Every Refine Level] - Reduce [Tracking#430] cast time by 5%.
+	if (n_A_ActiveSkill == 430 && EquipNumSearch(1787))
+		skill_cast_reduction -= 5 * n_A_Weapon_ATKplus;
+	
+	// Glorious equipment cast time reduction
+	// Valorous Battle Strategy Book#912 - Sage/Professor, Decrease [Fire Bolt], [Cold Bolt], and [Lightning Bolt] cast times by 15%.] [Amor]
+	if (n_A_JobSearch2() == 18 && (n_A_ActiveSkill == 56 || n_A_ActiveSkill == 51 || n_A_ActiveSkill == 54) && EquipNumSearch(912))
+		skill_cast_reduction -= 15;
+
+	// Glorious Apocalipse#1095 - Sage/Professor, Decrease [Fire Bolt], [Cold Bolt], and [Lightning Bolt] cast times by 20% plus 1% for every 2 refines.] [Amor]
+	if (n_A_JobSearch2() == 18 && (n_A_ActiveSkill == 56 || n_A_ActiveSkill == 51 || n_A_ActiveSkill == 54) && EquipNumSearch(1095))
+		skill_cast_reduction -= 20 + Math.floor(n_A_Weapon_ATKplus / 2);
+
+	// Glorious Claymore#1080 - Gives -3% [Charge Attack] Casting Time] [Amor]
+	if (n_A_ActiveSkill == 308 && EquipNumSearch(1080))
+		skill_cast_reduction -= 3 * n_A_Weapon_ATKplus;
+
+	// Glorious Claymore#1080 - Refine +6 > Gives -10% [Bowling Bash] Casting Time] [Amor]
+	if (n_A_ActiveSkill == 76 && n_A_Weapon_ATKplus >= 6 && EquipNumSearch(1080))
+		skill_cast_reduction -= 10 * (n_A_Weapon_ATKplus - 5);
+
+	// Glorious Fists#1097 - Gives -5% less casting time for [Asura Stike] per refine] [Amor]
+	if (n_A_ActiveSkill == 197 && EquipNumSearch(1097))
+		skill_cast_reduction -= 5 * (n_A_Weapon_ATKplus);
+
+	// Glorious Holy Avenger#1079 - [Grand Cross] -1% cast time per refine] [Amor]
+	if (n_A_ActiveSkill == 162 && EquipNumSearch(1079))
+	{
+		skill_cast_reduction -= n_A_Weapon_ATKplus;
+		
+		if (EquipNumSearch(1376)) // Glorious Holy Avenger - -5% [Grand Cross] cast time used with Aegis#1376] [Amor]
+			skill_cast_reduction -= 5;
+	}
+
+	// Glorious Rifle#1100 - [Tracking] -1% cast time per refine] [Amor]
+	if (EquipNumSearch(1100) && n_A_ActiveSkill == 430)
+		skill_cast_reduction -= n_A_Weapon_ATKplus;
 	
 	skill_cast_reduction -= StPlusCalc2(7000 + n_A_ActiveSkill);
 	skill_cast_reduction = Math.max(0, skill_cast_reduction - StPlusCard(7000 + n_A_ActiveSkill));
@@ -3374,6 +3410,15 @@ with(document.calcForm){
 	// Skill delay reduction script bonus
 	skill_delay_reduction = StPlusCalc2(8000 + n_A_ActiveSkill);
 	skill_delay_reduction += StPlusCard(8000 + n_A_ActiveSkill);
+	
+	// Altea & Ares#1784 - [Every Refine Level] - 1% less aftercast delay with [Rapid Shower#428]
+	if (428 == n_A_ActiveSkill && EquipNumSearch(1784))
+		skill_delay_reduction += n_A_Weapon_ATKplus;
+	
+	// Huuma Swirling Petal#1770 - [Every Refine Level] - 2% less aftercast delay with [Throw Huuma Shuriken#396]
+	if (396 == n_A_ActiveSkill && EquipNumSearch(1770))
+		skill_delay_reduction += 2 * n_A_Weapon_ATKplus;
+	
 	n_tok[74] = Math.floor(100 - (100 - n_tok[74]) * (1 - skill_delay_reduction / 100));
 
 	musical_lesson_lv = n_A_PassSkill3[2]; // Musical Lesson
@@ -3513,8 +3558,12 @@ with(document.calcForm){
 		n_tok[25] += 5;}//sagittarius crown
 
 	//custom TalonRO Evil Marching Hat: if refine rate >=9 +5% ranged damage
-	if(n_A_HEAD_DEF_PLUS >= 9 &&EquipNumSearch(1539)){
-		n_tok[25] += 5;}
+	if(n_A_HEAD_DEF_PLUS >= 9 &&EquipNumSearch(1539))
+		n_tok[25] += 5;
+	
+	// Brindle Eel [Rental]#1807 - Malang Snow Crab [Rental]#1809 - [Base Level  > 94] - Ranged physical attack damage + 10%
+	if (n_A_BaseLV > 94 && (EquipNumSearch(1807) || EquipNumSearch(1809)))
+		n_tok[25] += 10;
 
 	//[Custom TalonRO - 2018-07-09 Ancient Gold Adornment 5% Range Physical Damage] [NattWara]
 	if(EquipNumSearch(1663)){
@@ -4018,6 +4067,10 @@ with(document.calcForm){
 	// Ice Pick[0]#388, Ice Pick[1]#607 - Decreases physical damage against players by 30%
 	if (Taijin && (EquipNumSearch(388) || EquipNumSearch(607)))
 		n_tok[37] -= 30;
+	
+	// RAG203#1787 - Decreases physical damage against players by 75%
+	if (Taijin && EquipNumSearch(1787))
+		n_tok[37] -= 75;
 
 	/*[Custom TalonRO 2018-06-15 - Malangdo Enchantment for Spell Element] [Kato]
 		Well I couldn't find a n_tok for magical damage based on element.
@@ -4223,11 +4276,20 @@ with(document.calcForm){
 		if(n_A_HEAD_DEF_PLUS >= 9) n_tok[97] += 5;
 	}
 	
-	// Wood Goblin#562 - [Every Refine Level] Increase physical damage against Water and Earth by 1%
+	// Wood Goblin#562 - [Every Refine Level] - Increase physical damage against Water and Earth by 1%
 	if (CardNumSearch(562))
 	{
 		n_tok[41] += n_A_BODY_DEF_PLUS;
 		n_tok[42] += n_A_BODY_DEF_PLUS;
+	}
+	
+	// Southern Cross#1793 - [+Sphere Ammunition] - Increases damage inflicted on Neutral Property by 40%
+	//										  		[Every Refine Level] - Ignore [Normal] and [Boss] class monsters defense by 3%
+	if (EquipNumSearch(1793))
+	{
+		n_tok[40] += 40;
+		n_tok[21] += n_A_Weapon_ATKplus * 3;
+		n_tok[22] += n_A_Weapon_ATKplus * 3;
 	}
 	
 	/* 
@@ -4246,6 +4308,35 @@ with(document.calcForm){
 			n_tok[40 + eclage_food] += 5;
 			n_tok[350 + eclage_food] += 5;
 			n_tok[370 + eclage_food] += 5;
+	}
+
+	if (EquipNumSearch(1806)) // Vanargand Helm#1086
+	{
+		//[Refine Rate > 4] Add an additional 2% HP drain.
+		if (n_A_HEAD_DEF_PLUS > 4)
+			n_tok[381] += 2;
+		//[Refine Rate > 6] Add an additional 2% HP drain, 1% SP drain and an additional 1% chance of HP and SP being drained.
+		if (n_A_HEAD_DEF_PLUS > 6)
+		{
+			n_tok[380] += 1;
+			n_tok[381] += 2;
+			n_tok[382] += 1;
+			n_tok[383] += 1;
+		}
+		//[Refine Rate > 7] Add an additional 1% chance of HP and SP being drained.
+		if (n_A_HEAD_DEF_PLUS > 7)
+		{
+			n_tok[380] += 1;
+			n_tok[382] += 1;
+		}
+		//[Refine Rate > 8] Add an additional 3% HP drain, 2% SP drain and an additional 1% chance of HP and SP being drained.
+		if (n_A_HEAD_DEF_PLUS > 8)
+		{
+			n_tok[380] += 1;
+			n_tok[381] += 3;
+			n_tok[382] += 1;
+			n_tok[383] += 2;
+		}
 	}
 
 	ClickB_Enemy(0 == Taijin && document.calcForm.monster_stats_check.checked);
@@ -6389,10 +6480,10 @@ function KakutyouKansuu(){
 		}else
 			myInnerHtml("A_KakutyouData","Not Available for this Class",0);
 	}
-	else if(wKK == 17)
+	else if(wKK == 17) // Drain Rate
 	{
 		wkk17 = "";
-		if (n_Enekyori == 2)
+		if (n_Enekyori == 2 && 162 != n_A_ActiveSkill)
 			myInnerHtml("A_KakutyouData","Skill not elligible for drain",0);
 		else if (n_tok[380] || n_tok[382])
 		{
@@ -7664,15 +7755,33 @@ wESx = new Array();
 for(i=0;i<=EnemyNum;i++)
 	wESx[i]=new Array();
 
+function manage_boss_property_sort(is_boss_check)
+{
+	boss_filter = eval(document.calcForm.boss_filter.checked);
+	non_boss_filter = eval(document.calcForm.non_boss_filter.checked);
+	
+	if (!non_boss_filter && !boss_filter)
+	{
+		if (is_boss_check)
+			document.calcForm.boss_filter.checked = true;
+		else
+			document.calcForm.non_boss_filter.checked = true;
+	}
+}
+
 function sort_monsters_db()
 {
 	sort_type = eval(document.calcForm.ENEMY_SORT.value);
+	boss_filter = eval(document.calcForm.boss_filter.checked);
+	non_boss_filter = eval(document.calcForm.non_boss_filter.checked);
 	selected_region = eval(document.calcForm.ENEMY_SORT2.value);
 	
 	if (selected_region)
 		monsters_db = MonsterOBJ.filter(x => MonMap[selected_region].includes(x[0]));
 	else
 		monsters_db = MonsterOBJ;
+	
+	monsters_db = monsters_db.filter(x => (boss_filter ? x[19] == 1 : 0) || (non_boss_filter ? x[19] != 1 : 0));
 	
 	if (!sort_type) // Alpha-numerical sort [1]
 		sorted_monsters_db = monsters_db.concat().sort(function(a,b){return a[1].localeCompare(b[1])});
@@ -8517,47 +8626,7 @@ with(document.calcForm){
 	StAllCalc();
 	ActiveSkillSetPlus();
 }}
-/*
-function LoadCookieSP(){
-with(document.calcForm){
-	var wStr = "";
-	//custom TalonRO adding char saves
-	//old
-	//for(var k=0;k<=18;k++){
-	//new
-	for(var k=0;k<=49;k++){
-		var SaveData = new Array();
-		if(k <= 7)
-			var	cookieNum = "num0"+k;
-		if(k == 8)
-			var	cookieNum = "num09";
-		if(k == 9)
-			var	cookieNum = "num10";
-		if(k > 10)
-			var cookieNum = "num"+k;
-		SaveData = document.cookie.split("; ");
-		var ch=0;
-		for(i=0;SaveData[i];i++){
-			if (SaveData[i].substr(0,6) == cookieNum +"="){
-				wStr += SaveData[i].substr(6,SaveData[i].length);
-				ch = 1;
-				var x=0;
-				for(var i=0;i<=88;i++)
-					x += SaveStr1[i];
-				for(i=x;i<=159;i++)
-					wStr += 0;
-				wStr += "<BR>";
-			}
-		}
-		if(ch==0){
-			for(var i=0;i<=159;i++)
-				wStr += 0;
-			wStr += "<BR>";
-		}
-	}
-	myInnerHtml("PR1",wStr,0);
-}}
-*/
+
 function LoadCookie3(){
 
 	SaveData = new Array();
@@ -8612,93 +8681,6 @@ function LoadCookie3(){
 			document.calcForm.A_SaveSlot.options[k-1] = new Option("Save "+k +": No Data",cookieNum);
 	}
 }
-/*
-function SaveCookieConf(){
-	SaveData = new Array();
-
-	wDay = 99000;
-
-	wCookie = new Date();
-	wCookie.setTime(wCookie.getTime()+(wDay*1000*60*60*24));
-	expDay = wCookie.toGMTString();
-
-	wStr = "a" + NtoS2(eval(document.calcForm.Conf01.value),2) + "00000";
-
-	document.cookie = "ConfData" +"="+ wStr +"; expires="+ expDay;
-}
-*/
-/*
-function LoadCookieConf(){
-
-	SaveData = new Array();
-	SaveData = document.cookie.split("; ");
-	wStr = "";
-
-	wLCF = 0;
-	for(i=0;SaveData[i];i++){
-		if(SaveData[i].substr(0,9) == "ConfData" +"="){
-			wStr = SaveData[i].substr(9,SaveData[i].length);
-			wLCF = 1;
-			break;
-		}
-	}
-
-	//if(wLCF == 1){
-	//	if(wStr.substr(0,1) == "0"){
-	//		document.calcForm.Conf01.value = wStr.substr(1,2);
-	//		SaveCookieConf();
-	//	}else
-	//		document.calcForm.Conf01.value = StoN2(wStr.substr(1,2));
-	//}else{
-	//	document.calcForm.Conf01.value = 33;
-	//}
-}
-*/
-/*
-function SaveCookieChangelogDisplay(){
-	var disp;
-	if (document.getElementById('ChangelogDisplay').style.display=='inline'){
-		document.getElementById('ChangelogDisplay').style.display='none';
-		disp=0;
-	}else if (document.getElementById('ChangelogDisplay').style.display=='none'){
-		document.getElementById('ChangelogDisplay').style.display='inline';
-		disp=1;
-	}
-	wDay = 99000;
-
-	wCookie = new Date();
-	wCookie.setTime(wCookie.getTime()+(wDay*1000*60*60*24));
-	expDay = wCookie.toGMTString();
-
-	//wStr = "a" + NtoS2(eval(document.calcForm.Conf01.value),2) + "00000";
-
-	document.cookie = "ChangelogDisplay" +"="+ disp +"; expires="+ expDay;
-}
-*/
-
-/*
-function LoadCookieChangelogDisplay(){
-
-	SaveData = new Array();
-	SaveData = document.cookie.split("; ");
-	wStr = "";
-	wLCF = 0;
-	for(i=0;SaveData[i];i++){
-		if(SaveData[i].substr(0,17) == "ChangelogDisplay" +"="){
-			wStr = SaveData[i].substr(17,SaveData[i].length);
-			wLCF = 1;
-			break;
-		}
-	}
-	if(wLCF == 1){
-		if (wStr.substr(0,1) == "0"){
-			document.getElementById('ChangelogDisplay').style.display='none';
-		}else if (wStr.substr(0,1) == "1"){
-			document.getElementById('ChangelogDisplay').style.display='inline';
-		}
-	}
-}
-*/
 
 function NtoS2(n,keta){
 	var strX = "";
@@ -9447,7 +9429,6 @@ with(document.calcForm){
 			x+=14;
 		}
 
-		//document.calcForm.Conf01.value = StoN2(w.substr(x+1,2));
 		x+=2;
 		if(w_Version >= 1){
 			document.calcForm.A_HSE.value = StoN2(w.substr(x+1,2));
@@ -9457,21 +9438,8 @@ with(document.calcForm){
 			document.calcForm.A_HSE_HEAD1.value = StoN2(w.substr(x+1,2));
 			x+=2;
 		}
+		
 		//custom TalonRO Kris Enchantment LOAD URL
-		/*
-		if(A_weapon1.value == 1472){
-			A_KE11.value = StoN2(w.substr(x+1,2));
-			A_KE12.value = StoN2(w.substr(x+3,2));
-			x+=4
-		}
-		if (typeof(A_weapon2) != "undefined"){
-			if(A_weapon2.value == 1472){
-				A_KE21.value = StoN2(w.substr(x+1,2));
-				A_KE22.value = StoN2(w.substr(x+3,2));
-				x+=4
-			}
-		}
-		*/
 		A_KE11.value = StoN2(w.substr(x+1,2));
 		A_KE12.value = StoN2(w.substr(x+3,2));
 		A_KE21.value = StoN2(w.substr(x+5,2));

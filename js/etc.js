@@ -218,7 +218,7 @@ weaponsize = [
 	[1   ,0.75,0.5 ],
 	[0.75,1   ,0.75],
 	[0.75,1   ,0.5 ],
-	[0.75,0.75,1   ],
+	[1   ,1   ,1   ],
 	[1   ,1   ,1   ],
 	[1   ,1   ,1   ],
 	[1   ,1   ,1   ],
@@ -261,7 +261,7 @@ PET_OBJ = [[0,"No Pet",0,0]
 ,[9,"Golem [MHP +100, FLEE -5]",0,13,100,9,-5,0]
 ,[10,"Baby Desert Wolf [INT +1, MSP +20]",0,4,1,14,20,0]
 ,[11,"Goblin Leader [Physical Damage against Demi-Human Race +3%]",0,37,3,0]
-,[12,"Succubus [5% to get 5% of the Physical Damage dealt in each attack]","",0]
+,[12,"Succubus [Add a 5% chance of gaining 5% of physical damage inflicted on an enemy as HP]",0,380,5,381,5,0]
 ,[13,"Savage Babe [VIT +1, MHP +50]",0,3,1,13,50,0]
 ,[14,"Zherlthsh [MATK +2%, Magical Damage against Demi-Human +2%]",0,89,2,177,2,0]
 ,[15,"Steel Chonchon [FLEE +6, AGI -1]",0,9,6,2,-1,0]
@@ -366,7 +366,7 @@ PET_OBJ = [[0,"No Pet",0,0]
 ,[111,"Tiny Ventus [Physical/Magical Damage against Wind Monsters +2%]",0,44,2,444,2,0]
 ,[112,"Agni [Physical/Magical Damage against Fire Monsters +2%, Fire Resistance +2%]",0,43,2,443,2,63,2,0]
 ,[113,"Ventus [Physical/Magical Damage against Wind Monsters +2%, Wind Resistance +2%]",0,44,2,444,2,64,2,0]
-,[114,"Eira [Increases effectiveness of your Heal, Sanctuary and Potion Pitcher by 5%, 2% Chance of gaining 5% of the damage inflicted on an enemy as HP]",0,91,5,93,5,94,5,0]
+,[114,"Eira [Increases effectiveness of your Heal, Sanctuary and Potion Pitcher by 5%, 2% Chance of gaining 5% of physical damage inflicted on an enemy as HP]",0,91,5,93,5,94,5,380,2,381,5,0]
 ,[115,"Aqua [Physical/Magical Damage against Water Monsters +2%, Water Resistance +2%]",0,41,2,441,2,61,2,0]
 ,[116,"Angry Penguin [Increase effectiveness of your Heal, Sanctuary and Potion Pitcher by 3%]",0,91,3,93,3,94,3,0]
 ,[117,"Baby Skoll [[Swordman, Thief, Merchant class] SP Rege. +20%, [Archer, Acolyte, Magician class] HP Rege. +20%, [Extended Class]HP/SP Rege. +10%, Perfect Dodge +3]",0,0]
@@ -384,8 +384,8 @@ PET_OBJ = [[0,"No Pet",0,0]
 ,[129,"Toucan [DEX +1, FLEE +5]",0,5,1,9,5,0]
 ,[130,"White Goat [+1.5% chance to cast Level 2 Bash when doing a physical attack, Increases the healing effectiveness of Carrots by 100%]",0,218,[515,100,0],0]
 ,[131,"Wild Rider [AGI +2, DEX +3, if equipped with Drooping Cat]",0,2,2,0]
-,[132,"Sprouting Egg [Add a 2% chance of gaining 5% of the damage inflicted, HP/SP regeneration +10%, MHP +300",0,13,300,75,10,76,10,0]
-,[133,"Bandit [MSP +25, Add a 2.5% chance of casting Lv1 Steal when doing a physical attack. Increase resistance to Shadow Property attacks by 1%.",0,14,25,67,1,0]
+,[132,"Sprouting Egg [Add a 2% chance of gaining 5% of physical damage inflicted as HP, HP/SP regeneration +10%, MHP +300]",0,13,300,75,10,76,10,380,2,381,5,0]
+,[133,"Bandit [MSP +25, Add a 2.5% chance of casting Lv1 Steal when doing a physical attack. Increase resistance to Shadow Property attacks by 1%]",0,14,25,67,1,0]
 ,[134,"Moonlight Flower [ASPD +2%, INT +1, MHP +2%]",0,4,1,12,2,15,2,0]
 ,[135,"Scatleton [VIT +1, Shadow Resistance +1%, Ghost Resistance +2%",0,3,1,67,1,68,2,0]
 ,[136,"Lora [MDEF +1, increases effectiveness of received heal from Heal, Sanctuary and Potion Pitcher by 2%]",0,19,1,92,2,93,2,95,2,0]
@@ -402,7 +402,7 @@ PET_OBJ = [[0,"No Pet",0,0]
 ,[147,"Saga [Physical damage against Plant and Insect +3%, Physical damage against Water Property +2%]",0,33,3,34,3,41,2,0]
 ,[148,"Geiravor Disciple [FLEE +7, ASPD +2%]",0,9,7,12,2,0]
 ,[149,"Geiravor Partisan [Adds a 2% chance of casting Lv 5 Dark Strike when casting magic attacks]",0,221,112,0]
-,[150,"Normal Pope [Increases effectiveness of your Heal, Sanctuary and Potion Pitcher by 5%. Add a 2% chance of gaining 5% of the damage inflicted on an enemy as HP with each attack.]",0,91,5,93,5,94,5,0]
+,[150,"Normal Pope [Increases effectiveness of your Heal, Sanctuary and Potion Pitcher by 5%. Add a 2% chance of gaining 5% of physical damage inflicted on an enemy as HP with each attack.]",0,91,5,93,5,94,5,380,2,381,5,0]
 ,[151,"Sppo [Increase resistance against Water Property by 2%. Increase Physical and Magical damage against Water element monsters by 2%. Add a chance to get a Glacial Heart when killing a monster.]",0,61,2,41,2,351,2,0]
 ,[152,"Papare [AGI +1, reduces after-cast delay by 3%]",0,2,1,74,3,0]
 ,[153,"Phreeoni [HIT+5, Increase Physical and Magical damage against Earth element monsters by 3%]",0,8,5,42,3,352,3,0]
@@ -452,7 +452,7 @@ ITEM_SP_TIME_OBJ =[
 ,[32,"Hodremlin Card","Perfect Dodge + 30",2,467,11,30,0]
 ,[33,"Mithril Magic Manteau","Receive -20% Magical Damage,+20% Physical Damage[Anti-Magic Lv6]",1,709,0]
 ,[34,"Ring of Flame Lord","Critical Explosion Lv1",1,728,0]
-,[35,"Lord Knight Card","Berserk",2,178,0]
+,[35,"Tempest","[Every Refine Level] Add a 0.5% chance that you will increase damage on all enemies by 10% for 15 seconds.",1,1789,80,10,0]
 ,[36,"Soldier Shotgun","ATK + 80",1,928,17,80,0]
 ,[37,"Voina Dagger","Physical Damage + 10%",1,1157,80,10,0]
 ,[38,"Roubel","Bash / Bowling Bash Damage + 20%",1,1158,5006,20,5076,20,0]
@@ -470,6 +470,10 @@ ITEM_SP_TIME_OBJ =[
 ,[50,"Ancient Horns","ATK + 100",1,1538,17,100,0] //custom TalonRO,
 ,[51,"Duneyrr Card","Perfect Dodge + 10, [Lord Knight] Additional + 10 under Berserk",2,511,11,10,0]
 ,[52,"Rhyncho Card","Increase Resistance to Fire property by 10%",2,513,63,10,0]
+,[53,"Color Scope","[Every Refine Level] Add a 0.5% chance that you will increase Critical ATK by 10% for 15 seconds.",1,1786,70,10,0]
+,[54,"Brindle Eel [Rental]","When long range attacking, has a chance of adding ASPD + 10% for 7 seconds.",1,1807,12,10,0]
+,[55,"Saurel [Rental]","When using a melee attack, has a chance of adding ATK + 30 for 7 seconds.",1,1811,17,30,0]
+,[56,"Saurel [Rental]","When doing a magical attack, has a chance of adding MATK + 10% for 7 seconds.",1,1811,89,10,0]
 ];
 //ITEM_SP_TIME_OBJ_SORT = [0,5,10,4,27,3,44,37,30,31,26,39,49,45,46,18,48,15,11,12,14,13,17,32,1,7,47,35,33,21,16,40,28,34,38,42,19,22,23,24,36,41,25,6,20,8,29,43];
 
@@ -557,7 +561,7 @@ SQI_BONUS =[
 ,[21,1377,"Artemis Bow","+15% MaxHP",15,15,0]
 ,[22,1377,"Artemis Bow","+10% MaxSP, 25% chance to ignore arrow costs when using skills or attacking normally",16,15,0]
 ,[23,1377,"Artemis Bow","20% Magic Resistance",101,20,0]
-,[24,1377,"Artemis Bow","10% more damage with Critical Hits",70,10,0]
+,[24,1377,"Artemis Bow","10% more damage with auto-attack and [Sharpshoot] Critical Hits",70,10,0]
 ,[25,1377,"Artemis Bow","50% more damage with [Claymore Trap], [Blast Mine] and [Land Mine]",5106,50,5112,50,5113,50,0]
 ,[26,1377,"Artemis Bow","[Blast Mine] gains a 7x7 AoE. [Blast Mine] and [Land Mine] durations are increased to 100 seconds when mastered",0]
 ,[27,1377,"Artemis Bow","Add a 10% chance to auto-cast Level 2 [NPC_BLEEDING] when attacking normally (not calced)",0]
@@ -642,7 +646,7 @@ SQI_BONUS =[
 ,[106,1385,"Hira Shurikat","20% Demi-Human Resistance",57,20,0]
 ,[107,1385,"Hira Shurikat","20% Cast Time Reduction",73,-20,0]
 ,[108,1385,"Hira Shurikat","Enables use of level 1 [Hiding]. 50% more damage and add a 25% chance to inflict Stun status with [Mist Slash]",220,22,5400,50,0]
-,[109,1385,"Hira Shurikat","+25 CRIT, +20% more damage with Critical Hits",10,25,70,20,0]
+,[109,1385,"Hira Shurikat","+25 CRIT, +20% more damage with auto-attack and [Shadow Slash] Critical Hits",10,25,70,20,0]
 ,[110,1385,"Hira Shurikat","20% more damage with [Final Strike]. 10% of your current HP (not max) remains after using [Final Strike]",5405,20,5438,20,0]
 ,[111,1385,"Hira Shurikat","2 Cell Knockback and 50% more damage with [Crimson Fire Formation]",5408,50,0]
 ,[112,1385,"Hira Shurikat","50% more damage with [Throw Humma Shuriken], [Throw Shuriken], and [Throw Kunai]. [Throw Huuma Shuriken] only splits damage once instead of using mob count.",5394,50,5395,50,5396,50,0]
@@ -1114,6 +1118,15 @@ ME_ENCHANTABLE = [
 	,[951,0] //Stem of Nepenthes [2]
 	,[1454,0] //Stem Whip [1]
 	,[1622,0] //Rosevine
+/* [Huuma] */
+	,[660, 0] //Huuma Calm Mind
+/* [Guns] */
+	,[550, 0] //Garrison [1/2]
+	,[657, 0] //Lever Action Rifle [2]
+	,[655, 0] //Long Barrel [1]
+	,[559, 0] //Butcher [0/1]
+	,[659, 0] //Thunder P [2]
+	,[561, 0] //Inferno [1]
 ];
 
 BIOLAB_ENCHANTS_WEAPON = [

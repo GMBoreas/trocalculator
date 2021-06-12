@@ -144,6 +144,7 @@ BulletOBJ = [
 [15,2,"Earth Bullet"],
 [15,1,"Water Bullet"],
 [15,7,"Shadow Bullet"],
+[15,8,"Immaterial Bullet"],
 ];
 
 GrenadeOBJ = [
@@ -181,28 +182,28 @@ JobEquipItemOBJ = [
 [0, 1, 51, 61,107, 70, 71, 72, 74, 75,78,79,83,84,85,86,87,90,91,93,94,999], //Knight
 [0, 1, 52, 62,108, 72, 74, 75,78,79,81,83,84,85,90,91,93,94,999], //Assassin
 [0, 1, 53, 63,109, 71, 73, 74, 77,78,79,81,85,89,95,96,999], //Priest
-[0, 1, 54, 64,110, 75, 76,79,80,83,88,89,92,999], //Hunter
+[0, 1, 54, 60,64,110, 75, 76,79,80,83,88,89,92,999], //Hunter
 [0, 1, 55, 65,111, 71, 77,79,89,96,999], //Wizard
 [0, 1, 56, 66,112, 70, 71, 72, 73, 74, 75,78,79,83,84,85,86,90,91,93,94,95,999], //Blacksmith
 [0, 1, 51, 61,113, 70, 71, 72, 74, 75,78,79,83,84,85,86,87,90,91,93,94,999], //Crusader
 [0, 1, 52, 62,114, 72, 74, 75, 76,78,79,80,83,84,85,88,91,92,93,94,999], //Rogue
 [0, 1, 53, 63,115, 71, 73, 74, 77,78,79,85,89,95,96,999], //Monk
-[0, 1, 54, 64,116, 74, 75, 76,79,83,89,92,999], //Bard
-[0, 1, 54, 64,117, 74, 75, 76,79,83,89,92,999], //Dancer
+[0, 1, 54, 60,64,116, 74, 75, 76,79,83,89,92,999], //Bard
+[0, 1, 54, 60,64,117, 74, 75, 76,79,83,89,92,999], //Dancer
 [0, 1, 55, 65,118, 71, 77,79,89,96,999], //Sage
 [0, 1, 56, 66,119, 70, 71, 72, 73, 74, 75,78,79,83,84,85,86,90,91,93,94,95,999], //Alchemist
 [0,50,90,93,94,95,96,120,999], // Super Novice
 [0, 1, 51, 61,107,121, 70, 71, 72, 74, 75,78,79,82,83,84,85,86,87,90,91,93,94,95,999], //Lord Knight
 [0, 1, 52, 62,108,122, 72, 74, 75,78,79,81,82,83,84,85,90,91,93,94,999], //Assassin Cross
 [0, 1, 53, 63,109,123, 71, 73, 74, 77,78,79,81,82,85,89,95,96,151,152,999], //High Priest
-[0, 1, 54, 64,110,124, 75, 76,79,80,82,83,88,89,92,999], //Sniper
+[0, 1, 54, 60,64,110,124, 75, 76,79,80,82,83,88,89,92,999], //Sniper
 [0, 1, 55, 65,111,125, 71, 77,79,82,89,96,151,152,999], //High Wizard
 [0, 1, 56, 66,112,126, 70, 71, 72, 73, 74, 75,78,79,82,83,84,85,86,90,91,93,94,95,999], //Whitesmith
 [0, 1, 51, 61,113,127, 70, 71, 72, 74, 75,78,79,82,83,84,85,86,87,90,91,93,94,95,999], //Paladin
 [0, 1, 52, 62,114,128, 72, 74, 75, 76,78,79,80,82,83,84,85,88,91,92,93,94,999], //Stalker
 [0, 1, 53, 63,115,129, 71, 73, 74,77,78,79,82,85,89,95,96,152,999], //Champion
-[0, 1, 54, 64,116,130, 74, 75, 76,79,82,83,89,153,92,999], //Clown
-[0, 1, 54, 64,117,131, 74, 75, 76,79,82,83,89,153,92,999], //Gypsy
+[0, 1, 54, 60,64,116,130, 74, 75, 76,79,82,83,89,153,92,999], //Clown
+[0, 1, 54, 60,64,117,131, 74, 75, 76,79,82,83,89,153,92,999], //Gypsy
 [0, 1, 55, 65,118,132, 71,77,79,82,89,152,96,999], //Professor
 [0, 1, 56, 66,119,133, 70, 71, 72, 73, 74, 75,78,79,82,83,84,85,86,90,91,93,94,95,999], //Creator
 [0],
@@ -215,8 +216,8 @@ JobEquipItemOBJ = [
 [0, 1,141, 83,84,85,86,150,999], //Taekwon Kid //custom
 [0, 1,142, 79,83,84,85,86,87,91,150,999], //Star Gladiator
 [0, 1,143, 55, 65, 71, 77,79,89,93,96,999], //Soul Linker
-[0, 1,144, 58, 52,91,93,999], //Ninja
-[0, 1,145, 59, 83,145,999], //Gunslinger
+[0, 1,144, 58, 52, 91, 93,999], //Ninja
+[0, 1,145, 59, 60, 83,145,999], //Gunslinger
 ];
 
 /*
@@ -234,6 +235,7 @@ JobEquipItemOBJ = [
 		56 = merchant class
 		58 = ninja
 		59 = gunslinger
+		60 = archer class, gunslinger
 
 		61 = knight, crusader
 		62 = assassin, rogue
@@ -749,7 +751,7 @@ function BattleCalc999()
 				wbairitu += skill_ratio / 4;
 			if(n_A_ActiveSkillLV > 9 && aoe_position == 2)
 				wbairitu += skill_ratio / 2;
-		}else if(n_A_ActiveSkill==83 || n_A_ActiveSkill==388){
+		}else if(n_A_ActiveSkill==83 || n_A_ActiveSkill==388){ // Sonic Blow#83#388 (Soul Linked)
 
 			wActiveHitNum = 8;
 			wbairitu += n_A_ActiveSkillLV *0.5 + 2;
@@ -761,11 +763,7 @@ function BattleCalc999()
 				else
 					wbairitu *= 2;
 			}
-//			if(n_A_ActiveSkill==388 && n_Ses==0)
-//				n_Delay[3] = 1;
-
-//			else
-				n_Delay[3] = 2;
+			n_Delay[3] = 2;
 		}else if(n_A_ActiveSkill==111){
 			n_Delay[0] = 1;
 			not_use_card = 1;
@@ -838,7 +836,7 @@ function BattleCalc999()
 			wbairitu += (3 + n_A_ActiveSkillLV);
 			if(n_A_ActiveSkillLV>6) n_Delay[2]=1;
 			else n_Delay[2]=0.8;
-		}else if(n_A_ActiveSkill==292){
+		}else if(n_A_ActiveSkill==292){ // Arrow Vulcan#292
 			wActiveHitNum = 9;
 			wbairitu += 1 + n_A_ActiveSkillLV;
 			n_A_Weapon_zokusei = ArrowOBJ[n_A_Arrow][1];
@@ -846,9 +844,11 @@ function BattleCalc999()
 				n_A_Weapon_zokusei = eval(document.calcForm.A_Weapon_zokusei.value);
 			n_Enekyori=1;
 			wCast = 1.8 + n_A_ActiveSkillLV *0.2;
-			if(n_A_ActiveSkillLV>=6) n_Delay[2]=1;
-			else n_Delay[2]=0.8;
-			n_Delay[3]=3;
+			if (n_A_ActiveSkillLV > 5)
+				n_Delay[2] = 3;
+			else
+				n_Delay[2] = 2.8;
+			n_Delay[3] = 2;
 		}else if(n_A_ActiveSkill==302){
 			n_Enekyori=1;
 			not_use_card = 1;
@@ -939,12 +939,8 @@ function BattleCalc999()
 			n_Enekyori=1;
 			wActiveHitNum = 5;
 			wbairitu += n_A_ActiveSkillLV *0.5 + 4;
-			//custom TalonRO adjust skill delay to ingame value (1sec)
-			//before
-			//n_Delay[2] = 1.7;
-			//new
-			n_Delay[2] = 1.7;
-		}else if(n_A_ActiveSkill==430){//tracking
+			n_Delay[2] = 1;
+		}else if(n_A_ActiveSkill==430){ // Tracking#430
 			if(n_A_Weapon_ATKplus > 8 && EquipNumSearch(1100)){TCcast = 1.25;}
 			else if(EquipNumSearch(926)){TCcast = .75;}
 			else{TCcast = 1;}
@@ -952,11 +948,18 @@ function BattleCalc999()
 			//cast_kotei = 1;
 			n_Enekyori=1;
 			wbairitu += n_A_ActiveSkillLV *1 +1;
-			n_Delay[2] = 1;
+
 			w_HIT = w_HIT * 5 +5;
 			if(w_HIT > 100)
 				w_HIT = 100;
 			w_HIT_HYOUJI = w_HIT;
+			
+			if (EquipNumSearch(1787)) // RAG203#1787
+			{
+				n_tok[23] = 1; // Enable bDefRatioAtkClass
+				n_Delay[3] = 1; // 1 second irreducible delay
+			}
+				
 		}else if(n_A_ActiveSkill==431){
 			wCast = 2;
 			n_Delay[2] = 1;
@@ -968,8 +971,7 @@ function BattleCalc999()
 			n_Delay[2] = 0.5;
 			w_HIT = 100;
 			w_HIT_HYOUJI = 100;
-		}else if(n_A_ActiveSkill==434){
-			cast_kotei = 1;
+		}else if(n_A_ActiveSkill==434){ // Dust#434
 			wCast = 1;
 			n_Enekyori=0;
 			wbairitu += n_A_ActiveSkillLV *0.5;
@@ -978,12 +980,12 @@ function BattleCalc999()
 			n_Enekyori=1;
 			wbairitu += n_A_ActiveSkillLV * 1 + 2;
 			n_Delay[2] = 1 + n_A_ActiveSkillLV *0.2;
-		}else if(n_A_ActiveSkill==436){
+		}else if (n_A_ActiveSkill == 436) // Spread Attack#436
+		{
 			n_Enekyori=1;
 			wbairitu += n_A_ActiveSkillLV * 0.2 - 0.2;
-			wCast = 1;
-			n_Delay[2] = 1;
-		}else if(n_A_ActiveSkill==437){
+		}
+		else if(n_A_ActiveSkill==437){
 			n_Enekyori=1;
 			not_use_card = 1;
 			wCast = 1;
@@ -993,7 +995,7 @@ function BattleCalc999()
 		ATKbai02(wbairitu,0);
 
 		if(cast_kotei == 0)
-			if(n_A_ActiveSkill==430){wCast = wCast;}else{wCast = wCast * n_A_CAST;}
+			wCast = wCast * n_A_CAST;
 
 		for(var i=0;i<=2;i++){
 			w_MagiclBulet = i;
@@ -1033,7 +1035,21 @@ function BattleCalc999()
 
 		CastAndDelay();
 		BattleCalc998();
-	}else if(n_A_ActiveSkill==40||n_A_ActiveSkill==70||n_A_ActiveSkill==111||n_A_ActiveSkill==192||n_A_ActiveSkill==76||n_A_ActiveSkill==418||n_A_ActiveSkill==391||n_A_ActiveSkill==429){
+	}
+	else if (22 == n_A_ActiveSkill) // Throw Stone#22
+	{
+		n_Enekyori = 1;
+
+		for (i = 0; i <=2; ++i)
+		{
+			w_DMG[i] = 50;
+			InnStr[i] += w_DMG[i];
+		}
+
+		CastAndDelay();
+		BattleCalc998();
+	}
+	else if(n_A_ActiveSkill==40||n_A_ActiveSkill==70||n_A_ActiveSkill==111||n_A_ActiveSkill==192||n_A_ActiveSkill==76||n_A_ActiveSkill==418||n_A_ActiveSkill==391||n_A_ActiveSkill==429){
 		if(n_A_ActiveSkill==40){
 			n_Enekyori=1;
 			wbairitu += n_A_ActiveSkillLV *0.1 -0.1;
@@ -1066,12 +1082,14 @@ function BattleCalc999()
 			wCast = (1 + w) * n_A_CAST;
 			n_Delay[2] = 0.5;
 			n_Enekyori=1;
-		}else if(n_A_ActiveSkill==418){
-			n_Enekyori=1;
-			n_Delay[2] = 1;
-			wbairitu += 0.5;
+		}
+		else if(n_A_ActiveSkill==418) // Triple Action#427
+		{
 			wHITsuu = 3;
-		}else if(n_A_ActiveSkill==391){
+			n_Enekyori = 1;
+			wbairitu += 0.5;
+		}
+		else if(n_A_ActiveSkill==391){
 			n_Delay[0] = 1;
 			n_Enekyori=1;
 			wbairitu += n_A_STR *0.08 - 0.5;
@@ -1538,7 +1556,7 @@ function BattleCalc999()
 		BattleCalc998();
 	}
 
-	else if(n_A_ActiveSkill==197 || n_A_ActiveSkill==321) //asura
+	else if(n_A_ActiveSkill==197 || n_A_ActiveSkill==321) // Asura Strike#197#321 (MaxSP - 1)
 	{
 		n_PerHIT_DMG = 0;
 		w_HIT_HYOUJI = 100;
@@ -1580,12 +1598,7 @@ function BattleCalc999()
 
 		wCast = (4.5 - 0.5 * n_A_ActiveSkillLV) * n_A_CAST;
 
-		//original
-		//n_Delay[2] = 3.5 - 0.5 * n_A_ActiveSkillLV;
-		//custom TalonRO fixed delay for Asura: 15sec
-		//n_Delay[2] = 15;
-		//custom TalonRO adjusted Asura delay to 10 sec
-		n_Delay[2] = 10;
+		n_Delay[3] = 10; // 10 seconds irreducible delay
 
 		CastAndDelay();
 
@@ -1640,21 +1653,28 @@ function BattleCalc999()
 		BattleCalc998();
 	}
 
-	else if(n_A_ActiveSkill==396){
-		wbairitu += (n_A_ActiveSkillLV * 1.5 +0.5);
+	else if (n_A_ActiveSkill == 396) // Throw Huuma Shuriken#396
+	{
 		n_Enekyori=1;
-		ATKbai02(wbairitu,0);
-		wCast = 3 * n_A_CAST;
 		n_Delay[2] = 3;
+		wCast = 3 * n_A_CAST;
+		wbairitu += (n_A_ActiveSkillLV * 1.5 +0.5);
 		wActiveHitNum = 2 + Math.round(n_A_ActiveSkillLV / 2);
+		
+		monsters_targeted_nb = eval(document.calcForm.SkillSubNum.value);
+		
+		// Huuma Swirling Petal#1770 - Hira Shurikat#112 - [Throw Huuma Shuriken] only splits damage once instead of using mob count.
+		if (SQI_Bonus_Effect.findIndex(x => x == 112) > -1 || EquipNumSearch(1770))
+			monsters_targeted_nb = Math.min(2, monsters_targeted_nb);
 
+		ATKbai02(wbairitu,0);
 		for(var b=0;b<=2;b++){
 			w_DMG[b] = BattleCalc(n_A_DMG[b],b);
 			w_DMG[b] = Math.floor(w_DMG[b] * zokusei[n_B[3]][0]);
 			if(wActiveHitNum > 1)
 				w_DMG[b] = Math.floor(w_DMG[b] / wActiveHitNum) * wActiveHitNum;
 
-			Last_DMG_A[b] = Last_DMG_B[b] = w_DMG[b];
+			Last_DMG_A[b] = Last_DMG_B[b] = Math.floor(w_DMG[b] / monsters_targeted_nb);
 			InnStr[b] += Last_DMG_A[b];
 			InnStr[b] += " ("+ (Last_DMG_A[b] / wActiveHitNum) +" x "+ wActiveHitNum +"Hit)";
 		}
@@ -2043,7 +2063,7 @@ function BattleCalc999()
 			n_Delay[6] = 4;
 			wbairitu = 0.8 + n_A_ActiveSkillLV * 0.2;
 		}
-		else if(n_A_ActiveSkill==128 || n_A_ActiveSkill==320){
+		else if(n_A_ActiveSkill==128 || n_A_ActiveSkill==320){ // Water Ball#128#320
 			n_A_Weapon_zokusei = 1;
 			if(n_A_ActiveSkillLV >= 4)
 				wHITsuu = 25
@@ -2346,7 +2366,7 @@ function reset_monster_stats()
 function display_monster_stats()
 {
 	monster_stats_html =  '<table style="border: 1px solid #999; border-collapse: separate; width: auto;">';
-	monster_stats_html += '<TR><TD ColSpan="10" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px;">Monster Stats</div>';
+	monster_stats_html += '<TR><TD ColSpan="10" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px; width: 100px;">Monster Stats</div>';
 	monster_stats_html += '<div style="float: right; padding-right: 3px;"><input id="monster_stats_check" type="checkbox" name="monster_stats_check" onClick="display_monster_stats()"><label for="monster_stats_check">Show</label></div><div style="clear: both;"></div></TD></TR>';
 	
 	if (document.calcForm.monster_stats_check.checked)
@@ -2402,7 +2422,7 @@ with(document.calcForm){
 	if(n_ENSKSW){
 		var str;
 		str = '<table style="border: 1px solid #999; border-collapse: separate; width: auto;">';
-		str += '<TR><TD ColSpan="10" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px;">'+ wstr +' Skills </div>';
+		str += '<TR><TD ColSpan="10" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px; width: 100px;">'+ wstr +' Skills </div>';
 		str += '<div style="float: right; padding-right: 3px;"><input id="lab7" type="checkbox" name="B_ENSKSW"onClick="Click_EnemySkillsSW()"><label for="lab7">Show</label></div><div style="clear: both;"></div></TD></TR>';
 		if(Taijin == 0){//SK0 = EQ || SK1 = WF || SK2 = Kaupe
 			str += '<TD id="EN_SK3"></TD><TD id="B_SK3"></TD></TR>';
@@ -2443,7 +2463,7 @@ with(document.calcForm){
 	}else{
 		var str;
 		str = '<table style="border: 1px solid #999; border-collapse: separate; width: auto;">';
-		str += '<TR><TD ColSpan="6" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px;">'+ wstr +' Skills </div>';
+		str += '<TR><TD ColSpan="6" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px; width: 100px;">'+ wstr +' Skills </div>';
 		str += '<div style="float: right; padding-right: 3px;"><input id="lab7" type="checkbox" name="B_ENSKSW"onClick="Click_EnemySkillsSW()"><label for="lab7">Show</label></div><div style="clear: both;"></div></TD></TR></table>';
 		myInnerHtml("MONSTER_SKILLS",str,0);
 		B_ENSKSW.checked = 0;
@@ -2611,8 +2631,23 @@ function BattleCalc998()
 			
 			sp_cost = Math.ceil(sp_cost * (1 + n_tok[72] / 100));
 			
-		if ((65 == n_A_ActiveSkill || 326 == n_A_ActiveSkill) && (SQI_Bonus_Effect.findIndex(x => x == 117) > -1))
-			sp_cost = Math.ceil(sp_cost * 0.5);
+			// #117 - Reduce [Cart Termination] and [Mammonite] SP costs by 50%
+			if ((65 == n_A_ActiveSkill || 326 == n_A_ActiveSkill) && (SQI_Bonus_Effect.findIndex(x => x == 117) > -1))
+				sp_cost = Math.ceil(sp_cost * 0.5);
+		
+			/*
+				Huuma Thunderstorm#1771 	- [Every Refine Level] - 3% less SP cost with [Wind Blade], [Lightning Crash], and [North Wind].",5,4,89,15,20,4,344,10,0]
+				Huuma Fluttering Snow#1772 	- [Every Refine Level] - 3% less SP cost with [Lightning Spear of Ice], [Water Escape Technique], and [Falling Ice Pillar].",5
+				Huuma Fierce Inferno#1773 	- [Every Refine Level] - 3% less SP cost with [Crimson Fire Blossom], [Crimson Fire Formation] and [Dragon Fire Formation]."
+			*/
+			if ((EquipNumSearch(1771) && (413 == n_A_ActiveSkill || 414 == n_A_ActiveSkill || 415 == n_A_ActiveSkill)) ||
+				(EquipNumSearch(1772) && (410 == n_A_ActiveSkill || 411 == n_A_ActiveSkill || 412 == n_A_ActiveSkill)) ||
+				(EquipNumSearch(1773) && (407 == n_A_ActiveSkill || 408 == n_A_ActiveSkill || 409 == n_A_ActiveSkill)))
+				sp_cost = Math.ceil(sp_cost * (1 - 0.03 * n_A_Weapon_ATKplus));
+				
+			// Rolling Thunder#1790 - [Every Refine Level] - 5% more damage with [Spread Attack#436]
+			if (436 == n_A_ActiveSkill && EquipNumSearch(1790))
+				sp_cost = Math.ceil(sp_cost * (1 - 0.05 * n_A_Weapon_ATKplus));
 			
 			myInnerHtml("average_sp_cost", "Average SP Cost" ,0);
 			myInnerHtml("average_sp_cost_value", sp_cost * w,0);
@@ -3245,22 +3280,21 @@ with(document.calcForm){
 			j=18;
 			for (i=0; i<=4; i++)
 				ArrowOBJ[i] = ArrowOBJbackup[i];
-		}else if(n==17||n==18||n==19||n==20){
-			//custom TalonRO elemental bullets
-			//before
-			//j=2
-			//new
-			j=7;
-			//before
-			//for (i=0; i<=2; i++)
-			//new
-			for (i=0; i<=7; i++)
+		}
+		else if (n >= 17 && n <= 20)
+		{
+			j=8;
+			for (i=0; i<=8; i++)
 				ArrowOBJ[i] = BulletOBJ[i];
-		}else if(n==21){
+		}
+		else if (n==21)
+		{
 			j=4;
 			for (i=0; i<=4; i++)
 				ArrowOBJ[i] = GrenadeOBJ[i]
-		}else{
+		}
+		else
+		{
 			j=1;
 			ArrowOBJ[0] = [0,0,"No Arrows"];
 			ArrowOBJ[1] = ArrowOBJ[16];
@@ -3398,6 +3432,13 @@ with(document.calcForm){
 function ClickActiveSkill(){
 with(document.calcForm){
 	n_A_ActiveSkill = eval(A_ActiveSkill.value);
+
+	refine_skill_lv_bonus = 0;
+				
+	// Rolling Thunder#1790 - [Every 2 Refine Level] - Increase [Thunderstorm] level by 1.
+	if (EquipNumSearch(1790))
+		refine_skill_lv_bonus = Math.floor(n_A_Weapon_ATKplus / 2);
+				
 	if(n_A_ActiveSkill >= 3000){
 		n_A_ActiveSkillLV = InsertSkill[n_A_ActiveSkill -3000][3];
 		n_A_ActiveSkill = InsertSkill[n_A_ActiveSkill -3000][2];
@@ -3411,7 +3452,7 @@ with(document.calcForm){
 	for(i=0;i<len;i++)
 		A_ActiveSkillLV.options[0] = null;
 	if(n_A_ActiveSkill >= 0)
-		for(i=1;i<=n_A_ActiveSkillLV;i++)
+		for(i=1;i<=n_A_ActiveSkillLV + refine_skill_lv_bonus;i++)
 			A_ActiveSkillLV.options[i-1] = new Option(i,i);
 
 	if(SkillOBJ[n_A_ActiveSkill][1] == 1)
@@ -3493,6 +3534,14 @@ with(document.calcForm){
 		for(i=0;i<=4;i++)
 			SkillSubNum.options[i] = new Option(CHATK_NAME[i],i);
 		SkillSubNum.value=4;
+	}
+	else if (n_A_ActiveSkill == 396) // Throw Huuma Shuriken#396
+	{
+		myInnerHtml("AASkillName","Monster(s):",0);
+		myInnerHtml("AASkill",'<select name="SkillSubNum"onChange="calc()"></select>',0);
+		for (i = 1; i <= 30; ++i)
+			SkillSubNum.options[i - 1] = new Option(i,i);
+		SkillSubNum.value = 1;
 	}
 	else{
 		myInnerHtml("AASkillName","",0);
@@ -6367,7 +6416,7 @@ with(document.calcForm){
 	if(n_IjyouSW){
 		var str;
 		str = '<table style="border: 1px solid #999; border-collapse: separate; width: auto;">';
-		str += '<TR><TD id="AITD" ColSpan="6" Bgcolor="#DDDDFF"  class="subheader"><div style="float: left; padding: 3px;">'+ wstr +' Debuffs <span id="AIused"></span></div>';
+		str += '<TR><TD id="AITD" ColSpan="6" Bgcolor="#DDDDFF"  class="subheader"><div style="float: left; padding: 3px; width: 100px;">'+ wstr +' Debuffs <span id="AIused"></span></div>';
 		str += '<div style="float: right; padding-right: 3px;"><input id="lab6" type="checkbox" name="B_IJYOUSW" onClick="Click_IjyouSW()"><label for="lab6">Show</label></div><div style="clear: both;"></div></TD></TR>';
 		str += '<TR><TD id="BI0_1"></TD><TD id="BI0_2"></TD>';
 		str += '<TD id="BI1_1"></TD><TD id="BI1_2"></TD></TR>';
@@ -6486,7 +6535,7 @@ with(document.calcForm){
 	else{
 		var str;
 		str = '<table style="border: 1px solid #999; border-collapse: separate; width: auto;">';
-		str += '<TR><TD id="AITD" ColSpan="2" Bgcolor="#DDDDFF"  class="subheader"><div style="float: left; padding: 3px;">'+ wstr +' Debuffs <span id="AIused"></span></div>';
+		str += '<TR><TD id="AITD" ColSpan="2" Bgcolor="#DDDDFF"  class="subheader"><div style="float: left; padding: 3px; width: 100px;">'+ wstr +' Debuffs <span id="AIused"></span></div>';
 		str += '<div style="float: right; padding-right: 3px;"><input id="lab6" type="checkbox" name="B_IJYOUSW" onClick="Click_IjyouSW()"><label for="lab6">Show</label></div><div style="clear: both;"></div></TD></TR></TABLE>';
 		myInnerHtml("MONSTER_IJYOU",str,0);
 		B_IJYOUSW.checked = 0;
@@ -6524,7 +6573,7 @@ with(document.calcForm){
 	if(n_KyoukaSW){
 		var str;
 		str = '<table align="left" style="border: 1px solid #999; border-collapse: separate; width: auto;">';
-		str += '<TR><TD id="AKTD" ColSpan="6" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px;">'+ wstr +' Buffs <span id="AKused"></span></div>';
+		str += '<TR><TD id="AKTD" ColSpan="6" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px; width: 100px;">'+ wstr +' Buffs <span id="AKused"></span></div>';
 		str += '<div style="float: right; padding-right: 3px;"><input id="lab5" type="checkbox" name="B_KYOUKASW"onClick="Click_EnemyKyoukaSW()"><label for="lab5">Show</label></div></TD></TR>';
 		str += '<TR><TD id="ID_K0"></TD><TD id="ID_Kb0"></TD>';
 		str += '<TD id="ID_K1"></TD><TD id="ID_Kb1"></TD></TR>';
@@ -6598,7 +6647,7 @@ with(document.calcForm){
 	else{
 		var str;
 		str = '<table align="left" style="border: 1px solid #999; border-collapse: separate; width: auto;">';
-		str += '<TR><TD id="AKTD" ColSpan="6" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px;">'+ wstr +' Buffs <span id="AKused"></span></div>';
+		str += '<TR><TD id="AKTD" ColSpan="6" Bgcolor="#DDDDFF" class="subheader"><div style="float: left; padding: 3px; width: 100px;">'+ wstr +' Buffs <span id="AKused"></span></div>';
 		str += '<input id="lab5" type="checkbox" name="B_KYOUKASW"onClick="Click_EnemyKyoukaSW()"><label for="lab5">Show</label></TD></TR></TABLE>';
 		myInnerHtml("MONSTER_KYOUKA",str,0);
 		B_KYOUKASW.checked = 0;
@@ -6699,7 +6748,7 @@ with(document.calcForm){
 		//[Custom TalonRO = 2016-06-04 - Fixed the database link for Panel][Kato]
 		if (MonsterOBJ[B_Enemy.value][23]!=0){
 			document.getElementById("B_Enemy_picture").innerHTML="<img src=\"https://panel.talonro.com/images/monster/"+MonsterOBJ[B_Enemy.value][23]+".gif\" alt=\"no picture available =(\">";
-			document.getElementById("B_Enemy_mobdb").innerHTML="<a href=\"https://panel.talonro.com/mobdb/"+MonsterOBJ[B_Enemy.value][23]+"/\" target=\"_blank\"><b>MobDB</b></a>";
+			document.getElementById("B_Enemy_mobdb").innerHTML="<a style='color:white;' href=\"https://panel.talonro.com/mobdb/"+MonsterOBJ[B_Enemy.value][23]+"/\" target=\"_blank\">#"+MonsterOBJ[B_Enemy.value][23]+"</a>";
 		} else {
 			document.getElementById("B_Enemy_picture").innerHTML="<img src=\"\" alt=\"no picture available =(\">";
 			document.getElementById("B_Enemy_mobdb").innerHTML="<b>n/a</b>";
@@ -7300,6 +7349,11 @@ function calc()
 	if (EquipNumSearch(1495) && n_A_WeaponType)
 		wDA = Math.max(5, SkillSearch(13) * 5);
 	
+	// Tempest#1789 - If [Chain Action Learned] enables [Double Attack] according to the level of [Chain Action] learned
+	// [Every Refine Level] - Increase [Double Attack] rate further by 3%
+	if (EquipNumSearch(1789))
+		wDA = SkillSearch(427) * 5 + 3 * n_A_Weapon_ATKplus;
+	
 	// Sherwood Bow#1388 - Rogue/Stalker
 	// #151 - Enable [Double Attack] usage
 	if (1388 == n_A_Equip[0] && SQI_Bonus_Effect.findIndex(x => x == 151) > -1)
@@ -7407,12 +7461,12 @@ function calc()
 	n_A_CriATK[0] = n_A_ATK + n_A_WeaponLV_Minplus + Math.floor(n_A_Weapon_ATK * wCSize);
 	n_A_CriATK[2] = n_A_ATK + n_A_WeaponLV_Maxplus + Math.floor(n_A_Weapon_ATK * wCSize);
 
-	if(n_A_WeaponType==10 || 17<=n_A_WeaponType && n_A_WeaponType <= 21){
+	if (n_A_WeaponType==10 || 17<=n_A_WeaponType && n_A_WeaponType <= 21)
+	{
 		n_Enekyori=1;
-		if(n_A_WeaponType==10){
-			for(i=0;i<=2;i++)
-				n_A_CriATK[i] += Math.floor((ArrowOBJ[n_A_Arrow][0]) * wCSize);
-		}
+		
+		for(i=0;i<=2;i++)
+			n_A_CriATK[i] += Math.floor((ArrowOBJ[n_A_Arrow][0]) * wCSize);
 	}
 
 
@@ -7757,17 +7811,26 @@ function BaiCI(wBaiCI)
 		if(debug_dmg_avg)
 			debug_atk+="\n\tw1:"+w1+"(%)\na_wBaiCI:"+wBaiCI;
 
-		if(debug_dmg_avg) {
-			debug_atk+="\n --- (BaiCI) crit Modifier ---";
-			debug_atk+="\nb_wBaiCI:"+wBaiCI;
+		// Manage critical damage modifier
+		if (wCriTyuu)
+		{
+			// This modifier does not increase Shadow Slash#401 and Sharpshoot#272 damage
+			crit_dmg_modifier = (272 == n_A_ActiveSkill || 401 == n_A_ActiveSkill) ? 0 : n_tok[70];
+			
+			// #24 - 10% more damage with Critical Hits - Artemis bonus also increases Sharpshoot damage
+			if (272 == n_A_ActiveSkill && 1377 == n_A_Equip[0] && SQI_Bonus_Effect.findIndex(x => x == 24) > -1) // Sharpshoot#272
+				crit_dmg_modifier = 10;
+
+			if (401 == n_A_ActiveSkill) // Shadow Slash#401
+			{
+				crit_dmg_modifier = 10 * CardNumSearch(607); // Cenere card#607
+				// #109 - 20% more damage with Critical Hits - Hira bonus also increases Shadow Slash damage
+				if (1385 == n_A_Equip[0] && SQI_Bonus_Effect.findIndex(x => x == 109) > -1)
+					crit_dmg_modifier += 20;
+			}
+
+			wBaiCI = Math.floor(wBaiCI * (100 + crit_dmg_modifier) /100);
 		}
-		//custom TalonRO fix so critical damage bonus increases Sharp Shooting too
-		if(wCriTyuu==1 && n_A_ActiveSkill != 401)
-		//original
-		//if(wCriTyuu==1 && n_A_ActiveSkill != 272 && n_A_ActiveSkill != 401)
-			wBaiCI = Math.floor(wBaiCI * (100+ n_tok[70]) /100);
-		if(debug_dmg_avg)
-			debug_atk+="\na_wBaiCI:"+wBaiCI;
 
 		if(108<=n_B[0] && n_B[0]<=115 || n_B[0]==319 || n_B[0] == 233) 
 			wBaiCI = Math.floor(wBaiCI * (100+n_tok[81]) /100);
@@ -8060,6 +8123,10 @@ function ApplySkillAtkBonus(dmg)
 	// #127 - Increase damage inflicted on Large size monster by 15% when using [Pierce#70] or [Brandish Spear#73]
 	if (1386 == n_A_Equip[0] && 2 == n_B[4] && (70 == n_A_ActiveSkill || 73 == n_A_ActiveSkill) && SQI_Bonus_Effect.findIndex(x => x == 127) > -1)
 		skill_atk_bonus_ratio += 15;
+	
+	// Nibelungen#1386 + 1st Commander of Destruction#601 - Brandish damage bonus reduced by 10%
+	if (1386 == n_A_Equip[0] && 73 == n_A_ActiveSkill)
+		skill_atk_bonus_ratio -= 10 * CardNumSearch(601);
 
 	// [Two-Handed Spear] - 50% more damage with [Holy Cross]#161.
 	if (5 == n_A_WeaponType && 161 == n_A_ActiveSkill)
@@ -8071,6 +8138,28 @@ function ApplySkillAtkBonus(dmg)
 	// Amdarais Card#604 - [Cart Termination] damage inflicted on Ghost Element monsters by 25%.
 	if (326 == n_A_ActiveSkill && n_B[3] > 80 && [3] < 85) // Ghost 81-84
 		skill_atk_bonus_ratio += 25 * CardNumSearch(604);
+	
+	// Elemental Huuma#1771#1772#1773 - 50% more damage with [Throw Kunai#395] when equipped with elemental kunais.
+	if (395 == n_A_ActiveSkill && ((EquipNumSearch(1771) && 2 == document.calcForm.SkillSubNum.value)
+		|| (EquipNumSearch(1772) && 1 == document.calcForm.SkillSubNum.value)
+		|| (EquipNumSearch(1773) && 0 == document.calcForm.SkillSubNum.value)))
+		skill_atk_bonus_ratio += 50;
+	
+	// Huuma Swirling Petal#1770 - [Every Refine Level] - 5% more damage with [Throw Huuma Shuriken#396]
+	if (396 == n_A_ActiveSkill && EquipNumSearch(1770))
+		skill_atk_bonus_ratio += 5 * n_A_Weapon_ATKplus;
+	
+	// Heaven's Feather & Hell's Fire#1785 - [Every Refine Level] - 2% more damage with [Desperado#429]
+	if (429 == n_A_ActiveSkill && EquipNumSearch(1785))
+		skill_atk_bonus_ratio += 2 * n_A_Weapon_ATKplus;
+
+	// Color Scope#1786 - [Every Refine Level] - 3% more damage with [Piercing Shot#432]
+	if (432 == n_A_ActiveSkill && EquipNumSearch(1786))
+		skill_atk_bonus_ratio += 3 * n_A_Weapon_ATKplus;
+	
+	// Rolling Thunder#1790 - [Every Refine Level] - 5% more damage with [Spread Attack#436]
+	if (436 == n_A_ActiveSkill && EquipNumSearch(1790))
+		skill_atk_bonus_ratio += 5 * n_A_Weapon_ATKplus;
 	
 	dmg = dmg * (100 + StPlusCalc2 (5000 + n_A_ActiveSkill) + StPlusCard(5000 + n_A_ActiveSkill) + skill_atk_bonus_ratio) / 100;
 
@@ -8114,9 +8203,6 @@ function BattleCalc3left(w998)
 
 function SkillSearch(n)
 {
-	if(n==258 && TimeItemNumSearch(35))
-		return 1;
-
 	for(var k=0;k<=14;k++)
 	{
 		if(JobSkillPassOBJ[n_A_JOB][k] == n)
@@ -8339,7 +8425,7 @@ function CastAndDelay(){
 	}
 	
 	if(n_A_ActiveSkill != 0 && n_A_ActiveSkill != 284)
-		n_Delay[4] = 0.33; // [Custom TalonRO 2016-06-02 - Added fixed TRO's Minimun Delay for Skills] [Kato]
+		n_Delay[4] = eval(document.calcForm.minimum_skill_delay.value);
 
 	if(n_Delay[4] > (wDelay + wCast)){
 		wDelay = n_Delay[4] - wCast;
@@ -8378,12 +8464,19 @@ function CastAndDelay(){
 		strSUB2 += n_Delay[2] +"s<BR>";
 	}
 	if(w == 3){
-		if(n_A_ActiveSkill == 188 || n_A_ActiveSkill == 189 || n_A_ActiveSkill == 289){
+		if(n_A_ActiveSkill == 188 || n_A_ActiveSkill == 189 || n_A_ActiveSkill == 289)
+		{
 			n_Delay[3] = +n_Delay[3].toFixed(4);
 			strSUB2name += "<Font size=2>Delay (Combo Delay)</Font><BR>";
 			strSUB2 += n_Delay[3] +"~"+ (n_Delay[3] + 0.3) +"s<BR>";
-		}else{
-			strSUB2name += "<Font size=2>Delay (Forced Motion)</Font><BR>";
+		}
+		else
+		{
+			if (n_A_ActiveSkill == 83 || n_A_ActiveSkill == 388 || n_A_ActiveSkill == 292 ||
+				n_A_ActiveSkill == 434 || n_A_ActiveSkill == 128 || n_A_ActiveSkill == 320)
+				strSUB2name += "<Font size=2>Delay (Forced Motion)</Font><BR>";
+			else
+				strSUB2name += "<Font size=2>Delay (Irreducible)</Font><BR>";
 			strSUB2 += n_Delay[3] +"s<BR>";
 		}
 	}
